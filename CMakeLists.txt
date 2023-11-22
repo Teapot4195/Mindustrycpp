@@ -45,6 +45,10 @@ include("${CMAKE_BINARY_DIR}/CMakeRC.cmake")
 
 add_library(Arc OBJECT
         src/arc/util/ArcRuntimeException.h
+        src/arc/util/io/Writes.cpp
+        src/arc/util/io/Writes.h
+        src/arc/util/io/Reads.cpp
+        src/arc/util/io/Reads.h
 )
 
 set_target_properties(Arc PROPERTIES LINKER_LANGUAGE CXX)
