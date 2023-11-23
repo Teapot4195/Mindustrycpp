@@ -17,6 +17,50 @@ find_package(Boost 1.83.0
         REQUIRED
         COMPONENTS)
 
+file(DOWNLOAD "https://raw.githubusercontent.com/vector-of-bool/cmrc/master/CMakeRC.cmake"
+        "${CMAKE_BINARY_DIR}/CMakeRC.cmake")
+include("${CMAKE_BINARY_DIR}/CMakeRC.cmake")
+
+###################################################
+# Pack Resources for jar
+###################################################
+
+#cmrc_add_resource_library(
+#        app1-resources
+#
+#        ALIAS app1::rc
+#        NAMESPACE app1
+#
+#        resources/protocols.txt
+#        resources/hosts.txt
+#        resources/terminal.jpeg
+#)
+#
+#add_executable(application1 application1.cpp)
+#target_link_libraries(application1 app1::rc)
+
+###################################################
+# Main
+###################################################
+
+add_library(Arc OBJECT
+        src/arc/util/ArcRuntimeException.h
+        src/arc/util/io/Writes.cpp
+        src/arc/util/io/Writes.h
+        src/arc/util/io/Reads.cpp
+        src/arc/util/io/Reads.h
+)
+
+set_target_properties(Arc PROPERTIES LINKER_LANGUAGE CXX)
+target_include_directories(Arc SYSTEM PUBLIC ${Boost_INCLUDE_DIR})
+target_include_directories(Arc PRIVATE src/arc)
+
 add_executable(Mindustry src/main.cpp)
 target_include_directories(Mindustry SYSTEM PUBLIC ${Boost_INCLUDE_DIR})
 #target_link_libraries(Mindustry PUBLIC Boost::boost Boost::system Boost::thread)
+
+###################################################
+# Doxygen
+###################################################
+
+doxygen_add_docs(docs src ALL WARN_IF_UNDOCUMENTED)
