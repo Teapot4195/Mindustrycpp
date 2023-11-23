@@ -49,6 +49,8 @@ add_library(Arc OBJECT
         src/arc/util/io/Writes.h
         src/arc/util/io/Reads.cpp
         src/arc/util/io/Reads.h
+        src/arc/math/Rand.cpp
+        src/arc/math/Rand.h
 )
 
 set_target_properties(Arc PROPERTIES LINKER_LANGUAGE CXX)
