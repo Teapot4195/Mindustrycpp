@@ -51,6 +51,8 @@ add_library(Arc OBJECT
         src/arc/util/io/Reads.h
         src/arc/math/Rand.cpp
         src/arc/math/Rand.h
+        src/arc/math/Affine2.cpp
+        src/arc/math/Affine2.h
 )
 
 set_target_properties(Arc PROPERTIES LINKER_LANGUAGE CXX)
