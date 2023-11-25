@@ -384,7 +384,7 @@ std::shared_ptr<Vec3> Vec3::fromString(std::string v) {
     std::size_t s0 = v.find_first_of(',');
     std::size_t s1 = v.find_first_of(',', s0 + 1);
 
-    if (s0 != 0 && s1 != s0 + 1 && v[0] == '(' && v[v.length() - 1] == ')') {
+    if (s0 != std::string::npos && s1 != std::string::npos && v[0] == '(' && v[v.length() - 1] == ')') {
         try {
             float x1 = std::stof(v.substr(1, s0));
             float y1 = std::stof(v.substr(s0 + 1, s1));
