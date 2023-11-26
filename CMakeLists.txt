@@ -66,6 +66,8 @@ add_library(Arc OBJECT
         src/arc/util/pooling/Pool.h
         src/arc/util/pooling/Pools.h
         src/arc/ApplicationListener.h
+        src/arc/Application.h
+        src/arc/Application.cpp
 )
 
 set_target_properties(Arc PROPERTIES LINKER_LANGUAGE CXX)
