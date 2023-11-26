@@ -51,6 +51,7 @@ add_library(Arc OBJECT
         src/arc/util/io/Reads.h
         src/arc/math/Rand.cpp
         src/arc/math/Rand.h
+        src/arc/math/geom/Vector.h
         src/arc/math/geom/Position.h
         src/arc/math/Angles.cpp
         src/arc/math/Angles.h
