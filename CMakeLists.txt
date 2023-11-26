@@ -61,6 +61,7 @@ add_library(Arc OBJECT
         src/arc/math/Affine2.h
         src/arc/struct.h
         src/arc/util/pooling/Pool.h
+        src/arc/util/pooling/Pools.h
 )
 
 set_target_properties(Arc PROPERTIES LINKER_LANGUAGE CXX)
