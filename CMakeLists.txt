@@ -64,6 +64,8 @@ add_library(Arc OBJECT
         src/arc/math/Mat.h
         src/arc/math/Affine2.cpp
         src/arc/math/Affine2.h
+        src/arc/util/Time.cpp
+        src/arc/util/Time.h
         src/arc/struct.h
         src/arc/util/pooling/Pool.h
         src/arc/util/pooling/Pools.h
