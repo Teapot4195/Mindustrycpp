@@ -67,6 +67,8 @@ add_library(Arc OBJECT
         src/arc/struct.h
         src/arc/util/pooling/Pool.h
         src/arc/util/pooling/Pools.h
+        src/arc/util/Timer.cpp
+        src/arc/util/Timer.h
         src/arc/ApplicationListener.h
         src/arc/Application.h
         src/arc/Application.cpp
