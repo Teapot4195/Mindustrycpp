@@ -58,6 +58,8 @@ add_library(Arc OBJECT
         src/arc/math/Angles.cpp
         src/arc/math/Angles.h
         src/arc/math/geom/Position.cpp
+        src/arc/math/geom/Vec2.cpp
+        src/arc/math/geom/Vec2.h
         src/arc/math/geom/Vec3.cpp
         src/arc/math/geom/Vec3.h
         src/arc/math/Mat.cpp
