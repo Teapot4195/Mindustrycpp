@@ -51,6 +51,8 @@ add_library(Arc OBJECT
         src/arc/util/io/Reads.h
         src/arc/util/Disposable.h
         src/arc/func.h
+        src/arc/graphics/Color.cpp
+        src/arc/graphics/Color.h
         src/arc/math/Mathf.cpp
         src/arc/math/Mathf.h
         src/arc/math/Rand.cpp
