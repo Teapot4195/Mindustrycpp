@@ -26,6 +26,7 @@ class Application : public Disposable {
 public:
     // This is what became of the dispose function!
     ~Application() override;
+    void dispose() override;
 
     virtual std::pair<Seq<std::shared_ptr<ApplicationListener>>, std::mutex> getListeners() = 0;
 

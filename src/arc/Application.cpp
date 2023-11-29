@@ -70,11 +70,21 @@ bool Application::openURI(std::string URI) {
 }
 
 Application::~Application() {
-    if (Core::settings.hasValue()) {
+    if (Core::settings.has_value()) {
         Core::settings->autosave();
     }
 
-    if (Core::audio.hasValue()) {
+    if (Core::audio.has_value()) {
+        Core::audio.reset();
+    }
+}
+
+void Application::dispose() {
+    if (Core::settings.has_value()) {
+        Core::settings->autosave();
+    }
+
+    if (Core::audio.has_value()) {
         Core::audio.reset();
     }
 }
