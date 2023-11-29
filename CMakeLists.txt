@@ -81,6 +81,7 @@ add_library(Arc OBJECT
         src/arc/ApplicationListener.h
         src/arc/Application.h
         src/arc/Application.cpp
+        src/arc/graphics/GL20.h
 )
 
 set_target_properties(Arc PROPERTIES LINKER_LANGUAGE CXX)
