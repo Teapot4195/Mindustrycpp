@@ -49,6 +49,39 @@ add_library(Arc OBJECT
         src/arc/util/io/Writes.h
         src/arc/util/io/Reads.cpp
         src/arc/util/io/Reads.h
+        src/arc/util/Disposable.h
+        src/arc/func.h
+        src/arc/graphics/Color.cpp
+        src/arc/graphics/Color.h
+        src/arc/math/Mathf.cpp
+        src/arc/math/Mathf.h
+        src/arc/math/Rand.cpp
+        src/arc/math/Rand.h
+        src/arc/math/geom/Vector.h
+        src/arc/math/Interp.h
+        src/arc/math/geom/Position.h
+        src/arc/math/Angles.cpp
+        src/arc/math/Angles.h
+        src/arc/math/geom/Position.cpp
+        src/arc/math/geom/Vec2.cpp
+        src/arc/math/geom/Vec2.h
+        src/arc/math/geom/Vec3.cpp
+        src/arc/math/geom/Vec3.h
+        src/arc/math/Mat.cpp
+        src/arc/math/Mat.h
+        src/arc/math/Affine2.cpp
+        src/arc/math/Affine2.h
+        src/arc/util/Time.cpp
+        src/arc/util/Time.h
+        src/arc/struct.h
+        src/arc/util/pooling/Pool.h
+        src/arc/util/pooling/Pools.h
+        src/arc/util/Timer.cpp
+        src/arc/util/Timer.h
+        src/arc/ApplicationListener.h
+        src/arc/Application.h
+        src/arc/Application.cpp
+        src/arc/graphics/GL20.h
 )
 
 set_target_properties(Arc PROPERTIES LINKER_LANGUAGE CXX)

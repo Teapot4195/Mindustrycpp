@@ -8,6 +8,7 @@
 class Disposable {
 public:
     virtual ~Disposable() = default;
+    virtual void dispose() = 0;
     virtual bool isDisposed() {
         return false;
     }
