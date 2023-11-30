@@ -28,7 +28,7 @@ private:
     Seq<std::shared_ptr<T>> freeObjects;
 
 public:
-    int peak{};
+    std::size_t peak{};
 
     virtual ~Pool() = default;
 
