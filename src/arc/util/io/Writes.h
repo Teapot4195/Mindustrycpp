@@ -22,29 +22,29 @@ public:
 
     Writes(std::ofstream output);
 
-    ~Writes();
+    virtual ~Writes();
 
     static std::shared_ptr<Writes> get(std::ofstream output);
 
-    void l(long long i);
+    virtual void l(long long i);
 
-    void i(int i);
+    virtual void i(int i);
 
-    void b(int i);
+    virtual void b(int i);
 
-    void b(std::vector<std::uint8_t> array, int offset, std::size_t length);
+    virtual void b(std::vector<std::uint8_t> array, int offset, std::size_t length);
 
-    void b(const std::vector<std::uint8_t>& array);
+    virtual void b(const std::vector<std::uint8_t>& array);
 
-    void boolean(bool b);
+    virtual void boolean(bool b);
 
-    void s(int i);
+    virtual void s(int i);
 
-    void f(float f);
+    virtual void f(float f);
 
-    void d(double d);
+    virtual void d(double d);
 
-    void str(std::string str);
+    virtual void str(std::string str);
 };
 
 
