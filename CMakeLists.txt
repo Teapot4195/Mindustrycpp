@@ -84,6 +84,8 @@ add_library(Arc OBJECT
         src/arc/graphics/Gl.cpp
         src/arc/graphics/Gl.h
         src/arc/graphics/GL20.h
+        src/arc/graphics/gl/FileTextureData.cpp
+        src/arc/graphics/gl/FileTextureData.h
 )
 
 set_target_properties(Arc PROPERTIES LINKER_LANGUAGE CXX)
