@@ -9,7 +9,7 @@
 
 #include <Core.h>
 #include <Application.h>
-#include <util/ArcRuntimeException.h>
+#include <util/Exception.h>
 
 
 TimerThread::TimerThread() {

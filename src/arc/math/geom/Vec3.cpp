@@ -4,7 +4,7 @@
 
 #include "Vec3.h"
 #include "math/Mathf.h"
-#include "util/ArcRuntimeException.h"
+#include "util/Exception.h"
 
 #include <cmath>
 #include <utility>

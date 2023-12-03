@@ -53,7 +53,7 @@ add_library(lopepng OBJECT
 ###################################################
 
 add_library(Arc OBJECT
-        src/arc/util/ArcRuntimeException.h
+        src/arc/files/Fi.cpp
         src/arc/util/io/Writes.cpp
         src/arc/util/io/Writes.h
         src/arc/util/io/Reads.cpp
@@ -99,7 +99,6 @@ add_library(Arc OBJECT
         src/arc/util/io/WritesDeflate.h
         src/arc/util/io/ReadsDeflate.cpp
         src/arc/util/io/ReadsDeflate.h
-        src/arc/util/ArcNotImplementedException.h
 )
 
 set_target_properties(Arc PROPERTIES LINKER_LANGUAGE CXX)

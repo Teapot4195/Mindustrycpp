@@ -12,7 +12,7 @@
 #include <math/Angles.h>
 #include <math/Interp.h>
 #include <math/Rand.h>
-#include <util/ArcRuntimeException.h>
+#include <util/Exception.h>
 #include <util/Time.h>
 #include "Vec3.h"
 

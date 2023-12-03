@@ -11,7 +11,7 @@
 #include <math/Affine2.h>
 #include <math/geom/Vec3.h>
 #include <math/geom/Vec2.h>
-#include <util/ArcRuntimeException.h>
+#include <util/Exception.h>
 #include <Utilities.h>
 
 Mat::Mat() {

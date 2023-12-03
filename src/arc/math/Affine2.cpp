@@ -5,7 +5,7 @@
 #include "Affine2.h"
 
 #include <math/geom/Vec2.h>
-#include <util/ArcRuntimeException.h>
+#include <util/Exception.h>
 #include "Mathf.h"
 #include "Mat.h"
 

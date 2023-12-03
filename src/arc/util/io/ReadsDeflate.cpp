@@ -4,7 +4,7 @@
 
 #include "ReadsDeflate.h"
 
-#include "util/ArcRuntimeException.h"
+#include "util/Exception.h"
 
 std::shared_ptr<ReadsDeflate> ReadsDeflate::instance = std::make_shared<ReadsDeflate>();
 
