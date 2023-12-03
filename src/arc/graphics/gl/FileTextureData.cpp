@@ -6,7 +6,7 @@
 
 #include <arc/files/Fi.h>
 #include <arc/graphics/Pixmap.h>
-#include <util/ArcRuntimeException.h>
+#include <util/Exception.h>
 
 #include <utility>
 
