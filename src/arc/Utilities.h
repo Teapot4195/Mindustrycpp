@@ -71,6 +71,30 @@ namespace util {
 
         return {TmpPath};
     }
+
+    template< typename T >
+    std::string int_to_hex( T i )
+    {
+        std::stringstream stream;
+        stream << "0x"
+               << std::setfill ('0') << std::setw(sizeof(T)*2)
+               << std::hex << i;
+        return stream.str();
+    }
+
+    template <typename T>
+    T readIn(std::istream& in) {
+        char a[sizeof(T)];
+        in.read(a, sizeof(T));
+        T result;
+        for (char &e : a ) {
+            result <<= 8;
+            result &= ~T(0) ^ 0xFF; //Generate a bitmask of the form 0xFF00 with as many FF on the end as size.
+            result |= e;
+        }
+
+        return result;
+    }
 }
 
 #endif //MINDUSTRY_SRC_ARC_UTILITIES_H
