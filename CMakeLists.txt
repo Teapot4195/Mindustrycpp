@@ -99,6 +99,7 @@ add_library(Arc OBJECT
         src/arc/util/io/WritesDeflate.h
         src/arc/util/io/ReadsDeflate.cpp
         src/arc/util/io/ReadsDeflate.h
+        src/arc/util/ArcNotImplementedException.h
 )
 
 set_target_properties(Arc PROPERTIES LINKER_LANGUAGE CXX)
