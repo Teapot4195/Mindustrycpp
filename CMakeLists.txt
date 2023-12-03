@@ -88,6 +88,8 @@ add_library(Arc OBJECT
         src/arc/graphics/gl/FileTextureData.h
         src/arc/util/io/WritesDeflate.cpp
         src/arc/util/io/WritesDeflate.h
+        src/arc/util/io/ReadsDeflate.cpp
+        src/arc/util/io/ReadsDeflate.h
 )
 
 set_target_properties(Arc PROPERTIES LINKER_LANGUAGE CXX)

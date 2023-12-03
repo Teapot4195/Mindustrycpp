@@ -26,33 +26,33 @@ public:
 
     static std::shared_ptr<Reads> get(std::ifstream input);
 
-    int checkEOF();
+    virtual int checkEOF();
 
-    long long l();
+    virtual long long l();
 
-    int i();
+    virtual int i();
 
-    short s();
+    virtual short s();
 
-    unsigned short us();
+    virtual unsigned short us();
 
-    char b();
+    virtual char b();
 
-    std::vector<std::uint8_t> b(int length);
+    virtual std::vector<std::uint8_t> b(int length);
 
-    std::vector<std::uint8_t> b(std::vector<std::uint8_t>& array);
+    virtual std::vector<std::uint8_t> b(std::vector<std::uint8_t>& array);
 
-    unsigned char ub();
+    virtual unsigned char ub();
 
-    bool boolean();
+    virtual bool boolean();
 
-    float f();
+    virtual float f();
 
-    double d();
+    virtual double d();
 
-    std::string str();
+    virtual std::string str();
 
-    void skip(int amount);
+    virtual void skip(int amount);
 };
 
 
