@@ -99,6 +99,8 @@ add_library(Arc OBJECT
         src/arc/Utils.h
         src/arc/graphics/gl/FileTextureData.cpp
         src/arc/graphics/gl/FileTextureData.h
+        src/arc/graphics/PixmapIO.cpp
+        src/arc/graphics/PixmapIO.h
         src/arc/util/io/WritesDeflate.cpp
         src/arc/util/io/WritesDeflate.h
         src/arc/util/io/ReadsDeflate.cpp
