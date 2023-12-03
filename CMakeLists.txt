@@ -97,8 +97,10 @@ add_library(Arc OBJECT
         src/arc/graphics/Gl.h
         src/arc/graphics/GL20.h
         src/arc/Utils.h
+        src/arc/graphics/TextureData.h
         src/arc/graphics/gl/FileTextureData.cpp
         src/arc/graphics/gl/FileTextureData.h
+        src/arc/graphics/TextureData.cpp
         src/arc/graphics/PixmapIO.cpp
         src/arc/graphics/PixmapIO.h
         src/arc/util/io/WritesDeflate.cpp
