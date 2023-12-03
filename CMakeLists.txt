@@ -40,6 +40,15 @@ include("${CMAKE_BINARY_DIR}/CMakeRC.cmake")
 #target_link_libraries(application1 app1::rc)
 
 ###################################################
+# Submodule libraries
+###################################################
+
+add_library(lopepng OBJECT
+        libs/lodepng/lodepng.cpp
+        libs/lodepng/lodepng.h
+)
+
+###################################################
 # Main
 ###################################################
 
@@ -94,7 +103,9 @@ add_library(Arc OBJECT
 
 set_target_properties(Arc PROPERTIES LINKER_LANGUAGE CXX)
 target_include_directories(Arc SYSTEM PUBLIC ${Boost_INCLUDE_DIR})
-target_include_directories(Arc PRIVATE src/arc)
+target_include_directories(Arc PRIVATE src/arc libs/lodepng)
+
+target_link_libraries(Arc PUBLIC lodepng)
 
 add_executable(Mindustry src/main.cpp)
 target_include_directories(Mindustry SYSTEM PUBLIC ${Boost_INCLUDE_DIR})
