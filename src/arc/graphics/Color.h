@@ -71,15 +71,15 @@ public:
 
     static int packRgba(int r, int g, int b, int a);
 
-    int rgba565() const;
+    [[nodiscard]] int rgba565() const;
 
-    int rgba4444() const;
+    [[nodiscard]] int rgba4444() const;
 
-    int rgb888() const;
+    [[nodiscard]] int rgb888() const;
 
-    int rgba8888() const;
+    [[nodiscard]] int rgba8888() const;
 
-    int argb8888() const;
+    [[nodiscard]] int argb8888() const;
 
     std::shared_ptr<Color> rgb565(int value);
 
@@ -105,9 +105,9 @@ public:
 
     std::shared_ptr<Color> randHue();
 
-    float diff(const std::shared_ptr<Color>& other) const;
+    [[nodiscard]] float diff(const std::shared_ptr<Color>& other) const;
 
-    int rgba() const;
+    [[nodiscard]] int rgba() const;
 
     std::shared_ptr<Color> set(const std::shared_ptr<Color>& color);
 
@@ -131,7 +131,7 @@ public:
 
     std::shared_ptr<Color> set(int rgba);
 
-    float sum() const;
+    [[nodiscard]] float sum() const;
 
     std::shared_ptr<Color> add(float r1, float g1, float b1, float a1);
 
@@ -161,11 +161,11 @@ public:
 
     std::shared_ptr<Color> write(const std::shared_ptr<Color>& to);
 
-    float hue() const;
+    [[nodiscard]] float hue() const;
 
-    float saturation() const;
+    [[nodiscard]] float saturation() const;
 
-    float value() const;
+    [[nodiscard]] float value() const;
 
     std::shared_ptr<Color> hue(float amount);
 
@@ -181,13 +181,13 @@ public:
 
     bool equals(const std::shared_ptr<Color>& o);
 
-    float toFloatBits() const;
+    [[nodiscard]] float toFloatBits() const;
 
-    double toDoubleBits() const;
+    [[nodiscard]] double toDoubleBits() const;
 
-    std::uint32_t abgr() const;
+    [[nodiscard]] std::uint32_t abgr() const;
 
-    std::string toString() const;
+    [[nodiscard]] std::string toString() const;
 
     void toString(std::string &builder) const;
 
