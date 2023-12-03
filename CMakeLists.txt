@@ -54,6 +54,9 @@ add_library(lopepng OBJECT
 
 add_library(Arc OBJECT
         src/arc/files/Fi.cpp
+        src/arc/Utilities.h
+        src/arc/Utilities.h
+        src/arc/util/Exception.h
         src/arc/util/io/Writes.cpp
         src/arc/util/io/Writes.h
         src/arc/util/io/Reads.cpp
@@ -93,6 +96,7 @@ add_library(Arc OBJECT
         src/arc/graphics/Gl.cpp
         src/arc/graphics/Gl.h
         src/arc/graphics/GL20.h
+        src/arc/Utils.h
         src/arc/graphics/gl/FileTextureData.cpp
         src/arc/graphics/gl/FileTextureData.h
         src/arc/util/io/WritesDeflate.cpp
