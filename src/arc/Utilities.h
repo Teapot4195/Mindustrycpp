@@ -34,6 +34,19 @@ namespace java {
             };
         }
     }
+
+    class NamedTree {
+    public:
+        std::string type;
+
+        NamedTree() : NamedTree("object") {}
+
+        explicit NamedTree(std::string name) : type(std::move(name)) {}
+
+        [[nodiscard]] std::string getInstof() const {
+            return type;
+        }
+    };
 }
 
 namespace util {
