@@ -1,3 +1,6 @@
 [submodule "libs/lodepng"]
 	path = libs/lodepng
 	url = git@github.com:lvandeve/lodepng.git
+[submodule "libs/infoware"]
+	path = libs/infoware
+	url = git@github.com:ThePhD/infoware.git
