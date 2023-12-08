@@ -113,6 +113,8 @@ add_library(Arc OBJECT
         src/arc/util/io/ReadsDeflate.cpp
         src/arc/util/io/ReadsDeflate.h
         src/arc/util/Pack.h
+        src/arc/util/ColorCodes.cpp
+        src/arc/util/ColorCodes.h
         src/arc/util/OS.cpp
         src/arc/util/OS.h
 )
