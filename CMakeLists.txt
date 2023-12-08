@@ -98,6 +98,8 @@ add_library(Arc OBJECT
         src/arc/ApplicationListener.h
         src/arc/Application.h
         src/arc/Application.cpp
+        src/arc/graphics/GLTexture.cpp
+        src/arc/graphics/GLTexture.h
         src/arc/graphics/Gl.cpp
         src/arc/graphics/Gl.h
         src/arc/graphics/GL20.h
