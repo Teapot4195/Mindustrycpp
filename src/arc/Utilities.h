@@ -9,6 +9,13 @@
 #include <fstream>
 #include <utility>
 
+class Stringable {
+public:
+    virtual ~Stringable() = default;
+
+    virtual std::string toString() = 0;
+};
+
 struct JFile {
     JFile(const JFile &file) : path(file.path) {}
     JFile(std::filesystem::path path) : path(std::move(path)) {}
