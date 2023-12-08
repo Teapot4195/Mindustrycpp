@@ -4,3 +4,6 @@
 [submodule "libs/infoware"]
 	path = libs/infoware
 	url = git@github.com:Teapot4195/infoware.git
+[submodule "libs/reproc"]
+	path = libs/reproc
+	url = git@github.com:DaanDeMeyer/reproc.git
