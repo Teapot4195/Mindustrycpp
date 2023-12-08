@@ -48,6 +48,11 @@ add_library(lopepng OBJECT
         libs/lodepng/lodepng.h
 )
 
+add_subdirectory(libs/infoware)
+
+set(REPROC++ ON)
+add_subdirectory(libs/reproc)
+
 ###################################################
 # Main
 ###################################################
@@ -113,13 +118,14 @@ add_library(Arc OBJECT
 )
 
 set_target_properties(Arc PROPERTIES LINKER_LANGUAGE CXX)
-target_include_directories(Arc SYSTEM PUBLIC ${Boost_INCLUDE_DIR})
+target_include_directories(Arc SYSTEM PUBLIC ${Boost_INCLUDE_DIR} ${infoware_public_headers})
 target_include_directories(Arc PRIVATE src/arc libs/lodepng)
 
-target_link_libraries(Arc PUBLIC lodepng)
+target_link_libraries(Arc PUBLIC lodepng infoware reproc++)
 
 add_executable(Mindustry src/main.cpp)
 target_include_directories(Mindustry SYSTEM PUBLIC ${Boost_INCLUDE_DIR})
+#target_link_libraries(Mindustry PRIVATE Arc)
 #target_link_libraries(Mindustry PUBLIC Boost::boost Boost::system Boost::thread)
 
 ###################################################
