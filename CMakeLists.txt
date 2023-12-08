@@ -113,6 +113,8 @@ add_library(Arc OBJECT
         src/arc/util/io/ReadsDeflate.cpp
         src/arc/util/io/ReadsDeflate.h
         src/arc/util/Pack.h
+        src/arc/Graphics.cpp
+        src/arc/Graphics.h
         src/arc/graphics/gl/GLVersion.cpp
         src/arc/graphics/gl/GLVersion.h
         src/arc/util/Log.cpp
