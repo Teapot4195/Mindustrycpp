@@ -11,7 +11,7 @@
 class Fi;
 class Pixmap;
 
-class FileTextureData : public TextureData, public virtual java::NamedTree {
+class FileTextureData : public TextureData, public virtual java::NamedTree, public Stringable {
 private:
     std::shared_ptr<Fi> file;
     int width = 0;
@@ -45,7 +45,7 @@ public:
 
     void consumeCustomData(int &target) override;
 
-    std::string toString();
+    std::string toString() override;
 };
 
 
