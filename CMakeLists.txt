@@ -133,6 +133,8 @@ add_library(Arc OBJECT
         src/arc/graphics/gl/PixmapTextureData.h
         src/arc/math/geom/Path.h
         src/arc/math/geom/Bezier.h
+        src/arc/math/geom/Rect.cpp
+        src/arc/math/geom/Rect.h
         src/arc/math/geom/Shape2D.h
         src/arc/math/geom/Circle.cpp
         src/arc/math/geom/Circle.h
