@@ -15,6 +15,7 @@ struct Runnable {
 
 template <typename T>
 using Seq = std::vector<T>;
+using IntSeq = Seq<int>;
 using LongSeq = Seq<long long>;
 using ULongSeq = Seq<unsigned long long>;
 
