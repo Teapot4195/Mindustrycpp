@@ -14,7 +14,7 @@ class Shape2D {
 public:
     virtual ~Shape2D() = default;
 
-    virtual bool contains(std::shared_ptr<Vec2> point) = 0;
+    virtual bool contains(const std::shared_ptr<Vec2>& point) = 0;
 
     virtual bool contains(float x, float y) = 0;
 };
