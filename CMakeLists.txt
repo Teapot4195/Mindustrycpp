@@ -127,6 +127,8 @@ add_library(Arc OBJECT
         src/arc/util/ColorCodes.h
         src/arc/util/OS.cpp
         src/arc/util/OS.h
+        src/arc/graphics/Texture.cpp
+        src/arc/graphics/Texture.h
         src/arc/graphics/gl/PixmapTextureData.cpp
         src/arc/graphics/gl/PixmapTextureData.h
 )
