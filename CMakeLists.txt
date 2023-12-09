@@ -132,6 +132,7 @@ add_library(Arc OBJECT
         src/arc/graphics/gl/PixmapTextureData.cpp
         src/arc/graphics/gl/PixmapTextureData.h
         src/arc/math/geom/Path.h
+        src/arc/math/geom/Bezier.h
 )
 
 set_target_properties(Arc PROPERTIES LINKER_LANGUAGE CXX)
