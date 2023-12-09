@@ -127,6 +127,8 @@ add_library(Arc OBJECT
         src/arc/util/ColorCodes.h
         src/arc/util/OS.cpp
         src/arc/util/OS.h
+        src/arc/graphics/gl/PixmapTextureData.cpp
+        src/arc/graphics/gl/PixmapTextureData.h
 )
 
 set_target_properties(Arc PROPERTIES LINKER_LANGUAGE CXX)
