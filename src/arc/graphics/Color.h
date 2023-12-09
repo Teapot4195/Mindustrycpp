@@ -12,7 +12,7 @@
 // Forward decl, to avoid circular reference
 class Vec3;
 
-class Color {
+class Color : public std::enable_shared_from_this<Color> {
 public:
     static const std::shared_ptr<Color> white, lightGray, gray, darkGray, black, clear;
     static const float whiteFloatBits, clearFloatBits, blackFloatBits;

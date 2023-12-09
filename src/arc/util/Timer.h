@@ -39,7 +39,7 @@ public:
     void dispose() override;
 };
 
-class Task : public Runnable {
+class Task : public Runnable, public std::enable_shared_from_this<Task> {
 public:
     std::mutex selfLock;
     std::shared_ptr<Application> app;
@@ -60,7 +60,7 @@ public:
     virtual std::uint64_t getExecuteTimeMillis();
 };
 
-class Timer {
+class Timer : public std::enable_shared_from_this<Timer> {
 public:
     static std::mutex threadLock;
     static std::condition_variable threadLockNotify;

@@ -15,7 +15,7 @@ class Vec3;
 class Mat;
 class Rand;
 
-class Vec2 : public Vector<Vec2>, public Position {
+class Vec2 : public Vector<Vec2>, public Position, public std::enable_shared_from_this<Vec2> {
 public:
     static const std::shared_ptr<Vec2> X, Y, ZERO;
 
@@ -179,7 +179,7 @@ public:
 
     bool epsilonEquals(std::shared_ptr<Vec2> other);
 
-    bool epsilonEquals(float x1, float y1);
+    bool epsilonEquals(float x1, float y1) const;
 
     bool isNaN() const;
 

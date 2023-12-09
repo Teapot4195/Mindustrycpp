@@ -11,7 +11,7 @@
 //Forward decl to resolve circular reference
 class Fi;
 
-class ApplicationListener {
+class ApplicationListener : public std::enable_shared_from_this<ApplicationListener> {
 public:
     virtual ~ApplicationListener() = default;
 

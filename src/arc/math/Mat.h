@@ -13,7 +13,7 @@ class Vec3;
 class Vec2;
 class Affine2;
 
-class Mat {
+class Mat : public std::enable_shared_from_this<Mat> {
 public:
     static const int M00 = 0;
     static const int M01 = 3;

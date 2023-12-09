@@ -11,7 +11,7 @@
 class Mat;
 class Vec2;
 
-class Affine2 {
+class Affine2 : public std::enable_shared_from_this<Affine2> {
 public:
     float m00 = 1, m01 = 0, m02 = 0;
     float m10 = 0, m11 = 1, m12 = 0;

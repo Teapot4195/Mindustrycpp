@@ -14,7 +14,7 @@
 class Mat;
 class Vec2;
 
-class Vec3 : public Vector<Vec3> {
+class Vec3 : public Vector<Vec3>, public std::enable_shared_from_this<Vec3> {
 public:
     static const std::shared_ptr<Vec3> X;
     static const std::shared_ptr<Vec3> Y;

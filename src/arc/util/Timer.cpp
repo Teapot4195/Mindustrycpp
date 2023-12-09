@@ -14,7 +14,7 @@
 
 TimerThread::TimerThread() {
     files = Core::files.value();
-    Core::app.value()->addListener(std::shared_ptr<ApplicationListener>(this));
+    Core::app.value()->addListener(shared_from_this());
     resume();
 
     std::jthread([&]()->void{this->run();}).detach();
@@ -78,7 +78,7 @@ void TimerThread::dispose() {
         instances.clear();
         Timer::threadLockNotify.notify_all();
     }
-    Core::app.value()->removeListener(std::shared_ptr<ApplicationListener>(this));
+    Core::app.value()->removeListener(shared_from_this());
 }
 
 Task::Task() {
@@ -93,7 +93,7 @@ void Task::cancel() {
     if (!timer) {
         std::lock_guard<std::mutex> lock(timer->selfLock);
         executeTimeMillis = 0;
-        std::erase(timer->tasks, std::shared_ptr<Task>(this));
+        std::erase(timer->tasks, shared_from_this());
         timer = nullptr;
     } else {
         std::lock_guard<std::mutex> lock(selfLock);
@@ -194,7 +194,7 @@ Timer::scheduleTask(std::shared_ptr<Task> task, float delaySeconds, float interv
         std::lock_guard<std::mutex> lockGuard1(task->selfLock);
         if (!task->timer)
             throw std::invalid_argument("The same task may not be scheduled twice.");
-        task->timer = std::shared_ptr<Timer>(this);
+        task->timer = shared_from_this();
         task->executeTimeMillis = (std::uint64_t)((float)std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::steady_clock::now().time_since_epoch()).count() + ((float)delaySeconds * 1000.f));
         task->intervalMillis = (std::uint64_t)(intervalSeconds * 1000);
         task->repeatCount = repeatCount;
@@ -207,16 +207,16 @@ Timer::scheduleTask(std::shared_ptr<Task> task, float delaySeconds, float interv
 
 void Timer::stop() {
     std::lock_guard<std::mutex> lockGuard(threadLock);
-    std::erase(thread()->instances, std::shared_ptr<Timer>(this));
+    std::erase(thread()->instances, shared_from_this());
 }
 
 void Timer::start() {
     std::lock_guard<std::mutex> lockGuard(threadLock);
     auto& t = thread();
     auto& inst = t->instances;
-    if (std::any_of(inst.begin(), inst.end(), [&](const std::shared_ptr<Timer>& elem) -> bool {return std::shared_ptr<Timer>(this) == elem;}))
+    if (std::any_of(inst.begin(), inst.end(), [&](const std::shared_ptr<Timer>& elem) -> bool {return shared_from_this() == elem;}))
         return;
-    inst.push_back(std::shared_ptr<Timer>(this));
+    inst.push_back(shared_from_this());
     threadLockNotify.notify_all();
 }
 

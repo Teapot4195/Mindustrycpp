@@ -27,7 +27,7 @@ std::shared_ptr<Affine2> Affine2::idt() {
     m10 = 0;
     m11 = 1;
     m12 = 0;
-    return std::shared_ptr<Affine2>(this);
+    return shared_from_this();
 }
 
 std::shared_ptr<Affine2> Affine2::set(const Affine2 &&other) noexcept {
@@ -37,7 +37,7 @@ std::shared_ptr<Affine2> Affine2::set(const Affine2 &&other) noexcept {
     m10 = other.m10;
     m11 = other.m11;
     m12 = other.m12;
-    return std::shared_ptr<Affine2>(this);
+    return shared_from_this();
 }
 
 std::shared_ptr<Affine2> Affine2::set(const std::shared_ptr<Affine2>& other) {
@@ -47,7 +47,7 @@ std::shared_ptr<Affine2> Affine2::set(const std::shared_ptr<Affine2>& other) {
     m10 = other->m10;
     m11 = other->m11;
     m12 = other->m12;
-    return std::shared_ptr<Affine2>(this);
+    return shared_from_this();
 }
 
 std::shared_ptr<Affine2> Affine2::set(const std::shared_ptr<Mat> &matrix) {
@@ -59,7 +59,7 @@ std::shared_ptr<Affine2> Affine2::set(const std::shared_ptr<Mat> &matrix) {
     m10 = other[Mat::M10];
     m11 = other[Mat::M11];
     m12 = other[Mat::M12];
-    return std::shared_ptr<Affine2>(this);
+    return shared_from_this();
 }
 
 std::shared_ptr<Affine2> Affine2::setToTranslation(float x, float y) {
@@ -69,7 +69,7 @@ std::shared_ptr<Affine2> Affine2::setToTranslation(float x, float y) {
     m10 = 0;
     m11 = 1;
     m12 = y;
-    return std::shared_ptr<Affine2>(this);
+    return shared_from_this();
 }
 
 std::shared_ptr<Affine2> Affine2::setToTranslation(const std::shared_ptr<Vec2> &trn) {
@@ -83,7 +83,7 @@ std::shared_ptr<Affine2> Affine2::setToScaling(float scaleX, float scaleY) {
     m10 = 0;
     m11 = scaleY;
     m12 = 0;
-    return std::shared_ptr<Affine2>(this);
+    return shared_from_this();
 }
 
 std::shared_ptr<Affine2> Affine2::setToScaling(const std::shared_ptr<Vec2> &scale) {
@@ -100,7 +100,7 @@ std::shared_ptr<Affine2> Affine2::setToRotation(float degrees) {
     m10 = sin;
     m11 = cos;
     m12 = 0;
-    return std::shared_ptr<Affine2>(this);
+    return shared_from_this();
 }
 
 std::shared_ptr<Affine2> Affine2::setToRotationRad(float radians) {
@@ -113,7 +113,7 @@ std::shared_ptr<Affine2> Affine2::setToRotationRad(float radians) {
     m10 = sin;
     m11 = cos;
     m12 = 0;
-    return std::shared_ptr<Affine2>(this);
+    return shared_from_this();
 }
 
 std::shared_ptr<Affine2> Affine2::setToRotation(float sin, float cos) {
@@ -123,7 +123,7 @@ std::shared_ptr<Affine2> Affine2::setToRotation(float sin, float cos) {
     m10 = sin;
     m11 = cos;
     m12 = 0;
-    return std::shared_ptr<Affine2>(this);
+    return shared_from_this();
 }
 
 std::shared_ptr<Affine2> Affine2::setToShearing(float shearX, float shearY) {
@@ -133,7 +133,7 @@ std::shared_ptr<Affine2> Affine2::setToShearing(float shearX, float shearY) {
     m10 = shearY;
     m11 = 1;
     m12 = 0;
-    return std::shared_ptr<Affine2>(this);
+    return shared_from_this();
 }
 
 std::shared_ptr<Affine2> Affine2::setToShearing(const std::shared_ptr<Vec2>& shear) {
@@ -158,7 +158,7 @@ std::shared_ptr<Affine2> Affine2::setToTrnRotScale(float x, float y, float degre
         m10 = sin * scaleX;
         m11 = cos * scaleY;
     }
-    return std::shared_ptr<Affine2>(this);
+    return shared_from_this();
 }
 
 std::shared_ptr<Affine2>
@@ -184,7 +184,7 @@ std::shared_ptr<Affine2> Affine2::setToTrnRotRadScale(float x, float y, float ra
         m10 = sin * scaleX;
         m11 = cos * scaleY;
     }
-    return std::shared_ptr<Affine2>(this);
+    return shared_from_this();
 }
 
 std::shared_ptr<Affine2>
@@ -199,7 +199,7 @@ std::shared_ptr<Affine2> Affine2::setToTrnScl(float x, float y, float scaleX, fl
     m10 = 0;
     m11 = scaleY;
     m12 = y;
-    return std::shared_ptr<Affine2>(this);
+    return shared_from_this();
 }
 
 std::shared_ptr<Affine2> Affine2::setToTrnScl(const std::shared_ptr<Vec2>& trn, const std::shared_ptr<Vec2>& scale) {
@@ -213,7 +213,7 @@ std::shared_ptr<Affine2> Affine2::setToProduct(const std::shared_ptr<Affine2> &l
     m10 = l->m10 * r->m00 + l->m11 * r->m10;
     m11 = l->m10 * r->m01 + l->m11 * r->m11;
     m12 = l->m10 * r->m02 + l->m11 * r->m12 + l->m12;
-    return std::shared_ptr<Affine2>(this);
+    return shared_from_this();
 }
 
 std::shared_ptr<Affine2> Affine2::inv() {
@@ -236,7 +236,7 @@ std::shared_ptr<Affine2> Affine2::inv() {
     m10 = invDet * tmp10;
     m11 = invDet * tmp11;
     m12 = invDet * tmp12;
-    return std::shared_ptr<Affine2>(this);
+    return shared_from_this();
 }
 
 std::shared_ptr<Affine2> Affine2::mul(const std::shared_ptr<Affine2> &other) {
@@ -253,7 +253,7 @@ std::shared_ptr<Affine2> Affine2::mul(const std::shared_ptr<Affine2> &other) {
     m10 = tmp10;
     m11 = tmp11;
     m12 = tmp12;
-    return std::shared_ptr<Affine2>(this);
+    return shared_from_this();
 }
 
 std::shared_ptr<Affine2> Affine2::preMul(const std::shared_ptr<Affine2> &other) {
@@ -270,13 +270,13 @@ std::shared_ptr<Affine2> Affine2::preMul(const std::shared_ptr<Affine2> &other) 
     m10 = tmp10;
     m11 = tmp11;
     m12 = tmp12;
-    return std::shared_ptr<Affine2>(this);
+    return shared_from_this();
 }
 
 std::shared_ptr<Affine2> Affine2::translate(float x, float y) {
     m02 += m00 * x + m01 * y;
     m12 += m10 * x + m11 * y;
-    return std::shared_ptr<Affine2>(this);
+    return shared_from_this();
 }
 
 std::shared_ptr<Affine2> Affine2::translate(const std::shared_ptr<Vec2> &trn) {
@@ -286,7 +286,7 @@ std::shared_ptr<Affine2> Affine2::translate(const std::shared_ptr<Vec2> &trn) {
 std::shared_ptr<Affine2> Affine2::preTranslate(float x, float y) {
     m02 += x;
     m12 += y;
-    return std::shared_ptr<Affine2>(this);
+    return shared_from_this();
 }
 
 std::shared_ptr<Affine2> Affine2::preTranslate(const std::shared_ptr<Vec2> &trn) {
@@ -298,7 +298,7 @@ std::shared_ptr<Affine2> Affine2::scale(float scaleX, float scaleY) {
     m01 *= scaleY;
     m10 *= scaleX;
     m11 *= scaleY;
-    return std::shared_ptr<Affine2>(this);
+    return shared_from_this();
 }
 
 std::shared_ptr<Affine2> Affine2::scale(const std::shared_ptr<Vec2>& scale) {
@@ -312,7 +312,7 @@ std::shared_ptr<Affine2> Affine2::preScale(float scaleX, float scaleY) {
     m10 *= scaleY;
     m11 *= scaleY;
     m12 *= scaleY;
-    return std::shared_ptr<Affine2>(this);
+    return shared_from_this();
 }
 
 std::shared_ptr<Affine2> Affine2::preScale(const std::shared_ptr<Vec2> &scale) {
@@ -321,7 +321,7 @@ std::shared_ptr<Affine2> Affine2::preScale(const std::shared_ptr<Vec2> &scale) {
 
 std::shared_ptr<Affine2> Affine2::rotate(float degrees) {
     if(degrees == 0)
-        return std::shared_ptr<Affine2>(this);
+        return shared_from_this();
 
     float cos = Mathf::cosDeg(degrees);
     float sin = Mathf::sinDeg(degrees);
@@ -335,12 +335,12 @@ std::shared_ptr<Affine2> Affine2::rotate(float degrees) {
     m01 = tmp01;
     m10 = tmp10;
     m11 = tmp11;
-    return std::shared_ptr<Affine2>(this);
+    return shared_from_this();
 }
 
 std::shared_ptr<Affine2> Affine2::rotateRad(float radians) {
     if(radians == 0)
-        return std::shared_ptr<Affine2>(this);
+        return shared_from_this();
 
     float cos = Mathf::cos(radians);
     float sin = Mathf::sin(radians);
@@ -354,12 +354,12 @@ std::shared_ptr<Affine2> Affine2::rotateRad(float radians) {
     m01 = tmp01;
     m10 = tmp10;
     m11 = tmp11;
-    return std::shared_ptr<Affine2>(this);
+    return shared_from_this();
 }
 
 std::shared_ptr<Affine2> Affine2::preRotate(float degrees) {
     if(degrees == 0)
-        return std::shared_ptr<Affine2>(this);
+        return shared_from_this();
 
     float cos = Mathf::cosDeg(degrees);
     float sin = Mathf::sinDeg(degrees);
@@ -377,12 +377,12 @@ std::shared_ptr<Affine2> Affine2::preRotate(float degrees) {
     m10 = tmp10;
     m11 = tmp11;
     m12 = tmp12;
-    return std::shared_ptr<Affine2>(this);
+    return shared_from_this();
 }
 
 std::shared_ptr<Affine2> Affine2::preRotateRad(float radians) {
     if(radians == 0)
-        return std::shared_ptr<Affine2>(this);
+        return shared_from_this();
 
     float cos = Mathf::cos(radians);
     float sin = Mathf::sin(radians);
@@ -400,7 +400,7 @@ std::shared_ptr<Affine2> Affine2::preRotateRad(float radians) {
     m10 = tmp10;
     m11 = tmp11;
     m12 = tmp12;
-    return std::shared_ptr<Affine2>(this);
+    return shared_from_this();
 }
 
 std::shared_ptr<Affine2> Affine2::shear(float shearX, float shearY) {
@@ -413,7 +413,7 @@ std::shared_ptr<Affine2> Affine2::shear(float shearX, float shearY) {
     tmp1 = m11 + shearX * m10;
     m10 = tmp0;
     m11 = tmp1;
-        return std::shared_ptr<Affine2>(this);
+        return shared_from_this();
 }
 
 std::shared_ptr<Affine2> Affine2::shear(const std::shared_ptr<Vec2> &shear) {
@@ -434,7 +434,7 @@ std::shared_ptr<Affine2> Affine2::preShear(float shearX, float shearY) {
     m10 = tmp10;
     m11 = tmp11;
     m12 = tmp12;
-    return std::shared_ptr<Affine2>(this);
+    return shared_from_this();
 }
 
 std::shared_ptr<Affine2> Affine2::preShear(const std::shared_ptr<Vec2> &shear) {

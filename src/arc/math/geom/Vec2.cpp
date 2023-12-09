@@ -16,8 +16,6 @@
 #include <util/Time.h>
 #include "Vec3.h"
 
-#define ret return std::shared_ptr<Vec2>(this)
-
 const std::shared_ptr<Vec2> Vec2::X = std::make_shared<Vec2>(1, 0);
 const std::shared_ptr<Vec2> Vec2::Y = std::make_shared<Vec2>(1, 0);
 const std::shared_ptr<Vec2> Vec2::ZERO = std::make_shared<Vec2>(0, 0);
@@ -53,7 +51,7 @@ std::shared_ptr<Vec2> Vec2::snap() {
 std::shared_ptr<Vec2> Vec2::div(std::shared_ptr<Vec2> other) {
     x /= other->x;
     y /= other->y;
-    ret;
+    return shared_from_this();
 }
 
 std::shared_ptr<Vec2> Vec2::cpy() {
@@ -71,26 +69,26 @@ float Vec2::len2() {
 std::shared_ptr<Vec2> Vec2::set(std::shared_ptr<Vec2> v) {
     x = v->x;
     y = v->y;
-    ret;
+    return shared_from_this();
 }
 
 std::shared_ptr<Vec2> Vec2::set(const std::shared_ptr<Position>& v) {
     x = v->getX();
     y = v->getY();
-    ret;
+    return shared_from_this();
 }
 
 std::shared_ptr<Vec2> Vec2::set(float x1, float y1) {
     this->x = x1;
     this->y = y1;
-    ret;
+    return shared_from_this();
 }
 
 std::shared_ptr<Vec2> Vec2::set(const std::shared_ptr<Vec3>& other) {
     x = other->x;
     y = other->y;
 
-    return std::shared_ptr<Vec2>(this);
+    return shared_from_this();
 }
 
 std::shared_ptr<Vec2> Vec2::sub(const std::shared_ptr<Position>& pos) {
@@ -101,14 +99,14 @@ std::shared_ptr<Vec2> Vec2::sub(std::shared_ptr<Vec2> v) {
     x -= v->x;
     y -= v->y;
 
-    return std::shared_ptr<Vec2>(this);
+    return shared_from_this();
 }
 
 std::shared_ptr<Vec2> Vec2::sub(float x1, float y1) {
     x -= x1;
     y -= y1;
 
-    return std::shared_ptr<Vec2>(this);
+    return shared_from_this();
 }
 
 std::shared_ptr<Vec2> Vec2::sub(const std::shared_ptr<Vec3>& v) {
@@ -122,14 +120,14 @@ std::shared_ptr<Vec2> Vec2::nor() {
         y /= l;
     }
 
-    return std::shared_ptr<Vec2>(this);
+    return shared_from_this();
 }
 
 std::shared_ptr<Vec2> Vec2::add(std::shared_ptr<Vec2> v) {
     x += v->x;
     y += v->y;
 
-    return std::shared_ptr<Vec2>(this);
+    return shared_from_this();
 }
 
 std::shared_ptr<Vec2> Vec2::add(const std::shared_ptr<Position>& pos) {
@@ -140,14 +138,14 @@ std::shared_ptr<Vec2> Vec2::add(const std::shared_ptr<Vec2>& vec, float scl) {
     x += vec->x * scl;
     y += vec->y * scl;
 
-    return std::shared_ptr<Vec2>(this);
+    return shared_from_this();
 }
 
 std::shared_ptr<Vec2> Vec2::add(float x1, float y1) {
     x += x1;
     y += y1;
 
-    return std::shared_ptr<Vec2>(this);
+    return shared_from_this();
 }
 
 float Vec2::dot(std::shared_ptr<Vec2> v) {
@@ -162,7 +160,7 @@ std::shared_ptr<Vec2> Vec2::scl(float scalar) {
     x *= scalar;
     y *= scalar;
 
-    return std::shared_ptr<Vec2>(this);
+    return shared_from_this();
 }
 
 std::shared_ptr<Vec2> Vec2::inv() {
@@ -173,27 +171,27 @@ std::shared_ptr<Vec2> Vec2::scl(float x1, float y1) {
     x *= x1;
     y *= y1;
 
-    return std::shared_ptr<Vec2>(this);
+    return shared_from_this();
 }
 
 std::shared_ptr<Vec2> Vec2::scl(std::shared_ptr<Vec2> v) {
     x *= v->x;
     y *= v->y;
 
-    return std::shared_ptr<Vec2>(this);
+    return shared_from_this();
 }
 
 std::shared_ptr<Vec2> Vec2::mulAdd(std::shared_ptr<Vec2> v, float scalar) {
     x += v->x * scalar;
     y += v->y * scalar;
 
-    return std::shared_ptr<Vec2>(this);
+    return shared_from_this();
 }
 
 std::shared_ptr<Vec2> Vec2::mulAdd(std::shared_ptr<Vec2> v, std::shared_ptr<Vec2> mulVec) {
     x += v->x * mulVec->x;
     y += v->y * mulVec->y;
-    return std::shared_ptr<Vec2>(this);
+    return shared_from_this();
 }
 
 float Vec2::dst(std::shared_ptr<Vec2> v) {
@@ -229,7 +227,7 @@ std::shared_ptr<Vec2> Vec2::clampLength(float min, float max) {
         return limit(max);
     else if (l2 <= min * max)
         return setLength(min);
-    return std::shared_ptr<Vec2>(this);
+    return shared_from_this();
 }
 
 std::shared_ptr<Vec2> Vec2::limit(float limit) {
@@ -241,20 +239,20 @@ std::shared_ptr<Vec2> Vec2::limit2(float limit2) {
     if (l2 > limit2) {
         return scl((float)std::sqrt(limit2 / l2));
     }
-    return std::shared_ptr<Vec2>(this);
+    return shared_from_this();
 }
 
 std::shared_ptr<Vec2> Vec2::clamp(float min, float max) {
     float l2 = len2();
     if (l2 == 0.f)
-        return std::shared_ptr<Vec2>(this);
+        return shared_from_this();
     float max2 = max * max;
     if (l2 > max2)
         return scl((float)std::sqrt(max2 / l2));
     float min2 = min * min;
     if (l2 < min2)
         return scl((float)std::sqrt(min2 / l2));
-    return std::shared_ptr<Vec2>(this);
+    return shared_from_this();
 }
 
 std::shared_ptr<Vec2> Vec2::setLength(float len) {
@@ -264,7 +262,7 @@ std::shared_ptr<Vec2> Vec2::setLength(float len) {
 std::shared_ptr<Vec2> Vec2::setLength2(float l2) {
     float oldLen2 = len2();
 
-    return (oldLen2 == 0 || oldLen2 == l2) ? std::shared_ptr<Vec2>(this) : scl((float)std::sqrt(l2 / oldLen2));
+    return (oldLen2 == 0 || oldLen2 == l2) ? shared_from_this() : scl((float)std::sqrt(l2 / oldLen2));
 }
 
 std::string Vec2::toString() const {
@@ -275,7 +273,7 @@ std::shared_ptr<Vec2> Vec2::clamp(float minx, float miny, float maxx, float maxy
     x = Mathf::clamp(x, minx, maxx);
     y = Mathf::clamp(y, miny, maxy);
 
-    return std::shared_ptr<Vec2>(this);
+    return shared_from_this();
 }
 
 std::shared_ptr<Vec2> Vec2::tryFromString(std::string v) {
@@ -313,8 +311,8 @@ std::shared_ptr<Vec2> Vec2::mul(const std::shared_ptr<Mat>& mat) {
 
     x = newX;
     y = newY;
-    
-    return std::shared_ptr<Vec2>(this);
+
+    return shared_from_this();
 }
 
 float Vec2::crs(const std::shared_ptr<Vec2>& v) const {
@@ -338,7 +336,7 @@ float Vec2::angle(const std::shared_ptr<Vec2>& reference) {
 
 std::shared_ptr<Vec2> Vec2::rnd(float length) {
     setToRandomDirection()->scl(length);
-    return std::shared_ptr<Vec2>(this);
+    return shared_from_this();
 }
 
 float Vec2::angleRad() const {
@@ -357,7 +355,7 @@ std::shared_ptr<Vec2> Vec2::setAngleRad(float radians) {
     set(len() , 0.f);
     rotateRad(radians);
 
-    return std::shared_ptr<Vec2>(this);
+    return shared_from_this();
 }
 
 std::shared_ptr<Vec2> Vec2::rotateTo(float ang, float speed) {
@@ -382,7 +380,7 @@ std::shared_ptr<Vec2> Vec2::rotateRad(float radians) {
     x = newX;
     y = newY;
 
-    return std::shared_ptr<Vec2>(this);
+    return shared_from_this();
 }
 
 std::shared_ptr<Vec2> Vec2::rotateRadExact(float radians) {
@@ -395,7 +393,7 @@ std::shared_ptr<Vec2> Vec2::rotateRadExact(float radians) {
     x = newX;
     y = newY;
 
-    return std::shared_ptr<Vec2>(this);
+    return shared_from_this();
 }
 
 std::shared_ptr<Vec2> Vec2::rotateAroundRad(const std::shared_ptr<Vec2>& reference, float radians) {
@@ -412,7 +410,7 @@ std::shared_ptr<Vec2> Vec2::rotate90(int dir) {
         y = -x1;
     }
 
-    return std::shared_ptr<Vec2>(this);
+    return shared_from_this();
 }
 
 std::shared_ptr<Vec2> Vec2::approachDelta(const std::shared_ptr<Vec2>& target, float alpha) {
@@ -438,7 +436,7 @@ std::shared_ptr<Vec2> Vec2::approach(const std::shared_ptr<Vec2>& target, float 
 std::shared_ptr<Vec2> Vec2::lerpPast(const std::shared_ptr<Vec2>& target, float alpha) {
     x = x + ((target->x - x) * alpha);
     y = y + ((target->y - y) * alpha);
-    return std::shared_ptr<Vec2>(this);
+    return shared_from_this();
 }
 
 std::shared_ptr<Vec2> Vec2::lerpDelta(float tx, float ty, float alpha) {
@@ -446,7 +444,7 @@ std::shared_ptr<Vec2> Vec2::lerpDelta(float tx, float ty, float alpha) {
     float invAlpha = 1.0f - alpha;
     x = (x * invAlpha) + (tx * alpha);
     y = (y * invAlpha) + (ty * alpha);
-    return std::shared_ptr<Vec2>(this);
+    return shared_from_this();
 }
 
 std::shared_ptr<Vec2> Vec2::lerpDelta(const std::shared_ptr<Position>& target, float alpha) {
@@ -454,28 +452,28 @@ std::shared_ptr<Vec2> Vec2::lerpDelta(const std::shared_ptr<Position>& target, f
     float invAlpha = 1.0f - alpha;
     x = (x * invAlpha) + (target->getX() * alpha);
     y = (y * invAlpha) + (target->getY() * alpha);
-    return std::shared_ptr<Vec2>(this);
+    return shared_from_this();
 }
 
 std::shared_ptr<Vec2> Vec2::lerp(const std::shared_ptr<Position>& target, float alpha) {
     float invAlpha = 1.0f - alpha;
     x = (x * invAlpha) + (target->getX() * alpha);
     y = (y * invAlpha) + (target->getY() * alpha);
-    return std::shared_ptr<Vec2>(this);
+    return shared_from_this();
 }
 
 std::shared_ptr<Vec2> Vec2::lerp(float tx, float ty, float alpha) {
     float invAlpha = 1.0f - alpha;
     x = (x * invAlpha) + (tx * alpha);
     y = (y * invAlpha) + (ty * alpha);
-    return std::shared_ptr<Vec2>(this);
+    return shared_from_this();
 }
 
 std::shared_ptr<Vec2> Vec2::lerp(std::shared_ptr<Vec2> target, float alpha) {
     float invAlpha = 1.0f - alpha;
     x = (x * invAlpha) + (target->x * alpha);
     y = (y * invAlpha) + (target->y * alpha);
-    return std::shared_ptr<Vec2>(this);
+    return shared_from_this();
 }
 
 std::shared_ptr<Vec2>
@@ -484,7 +482,7 @@ Vec2::interpolate(std::shared_ptr<Vec2> target, float alpha, std::shared_ptr<Int
 }
 
 std::shared_ptr<Vec2> Vec2::setToRandomDirection() {
-    float theta = Mathf::random(0.f, Mathf::Pi2);
+    float theta = Mathf::random(0.f, Mathf::PI2);
     return set(Mathf::cos(theta), Mathf::sin(theta));
 }
 
@@ -519,7 +517,7 @@ bool Vec2::epsilonEquals(std::shared_ptr<Vec2> other) {
     return epsilonEquals(std::move(other), Mathf::FLOAT_ROUNDING_ERROR);
 }
 
-bool Vec2::epsilonEquals(float x1, float y1) {
+bool Vec2::epsilonEquals(float x1, float y1) const {
     return epsilonEquals(x1, y1, Mathf::FLOAT_ROUNDING_ERROR);
 }
 
@@ -576,7 +574,7 @@ bool Vec2::isPerpendicular(std::shared_ptr<Vec2> other) {
 }
 
 bool Vec2::isPerpendicular(std::shared_ptr<Vec2> other, float epsilon) {
-    return Mathf::zero(dot(vector), epsilon);
+    return Mathf::zero(dot(other), epsilon);
 }
 
 bool Vec2::hasSameDirection(std::shared_ptr<Vec2> other) {
@@ -590,7 +588,7 @@ bool Vec2::hasOppositeDirection(std::shared_ptr<Vec2> other) {
 std::shared_ptr<Vec2> Vec2::setZero() {
     x = 0;
     y = 0;
-    return std::shared_ptr<Vec2>(this);
+    return shared_from_this();
 }
 
 float Vec2::getX() {

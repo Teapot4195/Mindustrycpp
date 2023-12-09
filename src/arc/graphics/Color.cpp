@@ -172,7 +172,7 @@ std::shared_ptr<Color> Color::rgb565(int value) {
     r_ = (float)((value & 0x00000F80) >> 11) / 31.f;
     g_ = (float)((value & 0x000007E0) >> 5) / 63.f;
     b_ = (float)((value & 0x0000001F)) / 31.f;
-    return std::shared_ptr<Color>(this);
+    return shared_from_this();
 }
 
 std::shared_ptr<Color> Color::rgba4444(int value) {
@@ -180,14 +180,14 @@ std::shared_ptr<Color> Color::rgba4444(int value) {
     g_ = (float)((value & 0x00000f00) >> 8) / 15.f;
     b_ = (float)((value & 0x000000f0) >> 4) / 15.f;
     a_ = (float)((value & 0x0000000f)) / 15.f;
-    return std::shared_ptr<Color>(this);
+    return shared_from_this();
 }
 
 std::shared_ptr<Color> Color::rgb888(int value) {
     r_ = (float)((value & 0x00ff0000) >> 16) / 255.f;
     g_ = (float)((value & 0x0000ff00) >> 8) / 255.f;
     b_ = (float)((value & 0x000000ff)) / 255.f;
-    return std::shared_ptr<Color>(this);
+    return shared_from_this();
 }
 
 std::shared_ptr<Color> Color::rgba8888(int value) {
@@ -195,7 +195,7 @@ std::shared_ptr<Color> Color::rgba8888(int value) {
     g_ = (float)((value & 0x00ff0000) >> 16) / 255.f;
     b_ = (float)((value & 0x0000ff00) >> 8) / 255.f;
     a_ = (float)((value & 0x000000ff)) / 255.f;
-    return std::shared_ptr<Color>(this);
+    return shared_from_this();
 }
 
 std::shared_ptr<Color> Color::argb8888(int value) {
@@ -203,7 +203,7 @@ std::shared_ptr<Color> Color::argb8888(int value) {
     r_ = (float)((value & 0x00ff0000) >> 16) / 255.f;
     g_ = (float)((value & 0x0000ff00) >> 8) / 255.f;
     b_ = (float)((value & 0x000000ff)) / 255.f;
-    return std::shared_ptr<Color>(this);
+    return shared_from_this();
 }
 
 std::shared_ptr<Color> Color::abgr8888(int value) {
@@ -211,7 +211,7 @@ std::shared_ptr<Color> Color::abgr8888(int value) {
     b_ = (float)((value & 0x00ff0000) >> 16) / 255.f;
     g_ = (float)((value & 0x0000ff00) >> 8) / 255.f;
     r_ = (float)((value & 0x000000ff)) / 255.f;
-    return std::shared_ptr<Color>(this);
+    return shared_from_this();
 }
 
 std::shared_ptr<Color> Color::grays(float value) {
@@ -240,7 +240,7 @@ std::shared_ptr<Color> Color::randHue() {
     fromHsv(Mathf::random(360.f) , 1.f, 1.f);
     a_ = 1.f;
 
-    return std::shared_ptr<Color>(this);
+    return shared_from_this();
 }
 
 float Color::diff(const std::shared_ptr<Color>& other) const {
@@ -257,7 +257,7 @@ std::shared_ptr<Color> Color::set(const std::shared_ptr<Color>& color) {
     b_ = color->b_;
     a_ = color->a_;
 
-    return std::shared_ptr<Color>(this);
+    return shared_from_this();
 }
 
 std::shared_ptr<Color> Color::set(const std::shared_ptr<Vec3>& vec) {
@@ -322,7 +322,7 @@ std::shared_ptr<Color> Color::clamp() {
     else if (a_ > 1)
         a_ = 1;
 
-    return std::shared_ptr<Color>(this);
+    return shared_from_this();
 }
 
 std::shared_ptr<Color> Color::set(float r1, float g1, float b1, float a1) {
@@ -382,32 +382,32 @@ std::shared_ptr<Color> Color::inv() {
     r_ = 1.f - r_;
     g_ = 1.f - g_;
     b_ = 1.f - b_;
-    return std::shared_ptr<Color>(this);
+    return shared_from_this();
 }
 
 std::shared_ptr<Color> Color::r(float r1) {
     r_ = r1;
-    return std::shared_ptr<Color>(this);
+    return shared_from_this();
 }
 
 std::shared_ptr<Color> Color::g(float g1) {
     g_ = g1;
-    return std::shared_ptr<Color>(this);
+    return shared_from_this();
 }
 
 std::shared_ptr<Color> Color::b(float b1) {
     b_ = b1;
-    return std::shared_ptr<Color>(this);
+    return shared_from_this();
 }
 
 std::shared_ptr<Color> Color::a(float a1) {
     a_ = a1;
-    return std::shared_ptr<Color>(this);
+    return shared_from_this();
 }
 
 std::shared_ptr<Color> Color::mulA(float r1) {
     a_ *= r1;
-    return std::shared_ptr<Color>(this);
+    return shared_from_this();
 }
 
 std::shared_ptr<Color> Color::mul(float r1, float g1, float b1, float a1) {
@@ -431,11 +431,11 @@ std::shared_ptr<Color> Color::premultiplyAlpha() {
     g_ *= a_;
     b_ *= a_;
 
-    return std::shared_ptr<Color>(this);
+    return shared_from_this();
 }
 
 std::shared_ptr<Color> Color::write(const std::shared_ptr<Color>& to) {
-    return to->set(std::shared_ptr<Color>(this));
+    return to->set(shared_from_this());
 }
 
 float Color::hue() const {
@@ -458,7 +458,7 @@ std::shared_ptr<Color> Color::hue(float amount) {
     tmpHSV[0] = amount;
     fromHsv(tmpHSV);
 
-    return std::shared_ptr<Color>(this);
+    return shared_from_this();
 }
 
 std::shared_ptr<Color> Color::saturation(float amount) {
@@ -466,7 +466,7 @@ std::shared_ptr<Color> Color::saturation(float amount) {
     tmpHSV[1] = amount;
     fromHsv(tmpHSV);
 
-    return std::shared_ptr<Color>(this);
+    return shared_from_this();
 }
 
 std::shared_ptr<Color> Color::value(float amount) {
@@ -474,7 +474,7 @@ std::shared_ptr<Color> Color::value(float amount) {
     tmpHSV[1] = amount;
     fromHsv(tmpHSV);
 
-    return std::shared_ptr<Color>(this);
+    return shared_from_this();
 }
 
 std::shared_ptr<Color> Color::shiftHue(float amount) {
@@ -482,7 +482,7 @@ std::shared_ptr<Color> Color::shiftHue(float amount) {
     tmpHSV[0] += amount;
     fromHsv(tmpHSV);
 
-    return std::shared_ptr<Color>(this);
+    return shared_from_this();
 }
 
 std::shared_ptr<Color> Color::shiftSaturation(float amount) {
@@ -490,7 +490,7 @@ std::shared_ptr<Color> Color::shiftSaturation(float amount) {
     tmpHSV[1] += amount;
     fromHsv(tmpHSV);
 
-    return std::shared_ptr<Color>(this);
+    return shared_from_this();
 }
 
 std::shared_ptr<Color> Color::shiftValue(float amount) {
@@ -498,7 +498,7 @@ std::shared_ptr<Color> Color::shiftValue(float amount) {
     tmpHSV[1] += amount;
     fromHsv(tmpHSV);
 
-    return std::shared_ptr<Color>(this);
+    return shared_from_this();
 }
 
 bool Color::equals(const std::shared_ptr<Color>& o) {

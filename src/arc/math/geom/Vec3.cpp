@@ -69,7 +69,7 @@ std::shared_ptr<Vec3> Vec3::set(float x1, float y1, float z1) {
     this->y = y1;
     this->z = z1;
 
-    return std::shared_ptr<Vec3>(this);
+    return shared_from_this();
 }
 
 std::shared_ptr<Vec3> Vec3::div(std::shared_ptr<Vec3> other) {
@@ -77,7 +77,7 @@ std::shared_ptr<Vec3> Vec3::div(std::shared_ptr<Vec3> other) {
     y /= other->y;
     z /= other->z;
 
-    return std::shared_ptr<Vec3>(this);
+    return shared_from_this();
 }
 
 std::shared_ptr<Vec3> Vec3::set(std::shared_ptr<Vec3> v) {
@@ -121,7 +121,7 @@ std::shared_ptr<Vec3> Vec3::setToRandomDirection(Rand rand) {
 }
 
 std::shared_ptr<Vec3> Vec3::cpy() {
-    return std::make_shared<Vec3>(std::shared_ptr<Vec3>(this));
+    return std::make_shared<Vec3>(shared_from_this());
 }
 
 std::shared_ptr<Vec3> Vec3::add(std::shared_ptr<Vec3> v) {
@@ -129,7 +129,7 @@ std::shared_ptr<Vec3> Vec3::add(std::shared_ptr<Vec3> v) {
 }
 
 std::shared_ptr<Vec3> Vec3::cpy(const std::shared_ptr<Vec3>& dest) {
-    return dest->set(std::shared_ptr<Vec3>(this));
+    return dest->set(shared_from_this());
 }
 
 std::shared_ptr<Vec3> Vec3::add(const std::shared_ptr<Vec3>& vector, float scale) {
@@ -172,14 +172,14 @@ std::shared_ptr<Vec3> Vec3::mulAdd(std::shared_ptr<Vec3> v, float scalar) {
     x += v->x * scalar;
     y += v->y * scalar;
     z += v->z * scalar;
-    return std::shared_ptr<Vec3>(this);
+    return shared_from_this();
 }
 
 std::shared_ptr<Vec3> Vec3::mulAdd(std::shared_ptr<Vec3> v, std::shared_ptr<Vec3> mulVec) {
     x += v->x * mulVec->x;
     y += v->y * mulVec->y;
     z += v->z * mulVec->z;
-    return std::shared_ptr<Vec3>(this);
+    return shared_from_this();
 }
 
 float Vec3::len() {
@@ -229,7 +229,7 @@ bool Vec3::within(std::shared_ptr<Vec3> v, float dst) {
 std::shared_ptr<Vec3> Vec3::nor() {
     float l2 = len2();
     if (l2 == 0.f || l2 == 1.f)
-        return std::shared_ptr<Vec3>(this);
+        return shared_from_this();
     return scl(1.f / (float)std::sqrt(l2));
 }
 
@@ -350,7 +350,7 @@ std::shared_ptr<Vec3> Vec3::lerp(std::shared_ptr<Vec3> target, float alpha) {
     x += alpha * (target->x - x);
     y += alpha * (target->y - y);
     z += alpha * (target->z - z);
-    return std::shared_ptr<Vec3>(this);
+    return shared_from_this();
 }
 
 std::shared_ptr<Vec3>
@@ -406,7 +406,7 @@ std::shared_ptr<Vec3> Vec3::limit2(float limit2) {
     if (l2 > limit2) {
         scl((float)std::sqrt(limit2 / l2));
     }
-    return std::shared_ptr<Vec3>(this);
+    return shared_from_this();
 }
 
 std::shared_ptr<Vec3> Vec3::setLength(float len) {
@@ -415,20 +415,20 @@ std::shared_ptr<Vec3> Vec3::setLength(float len) {
 
 std::shared_ptr<Vec3> Vec3::setLength2(float l2) {
     float oldLen2 = len2();
-    return (oldLen2 == 0 || oldLen2 == l2) ? std::shared_ptr<Vec3>(this) : scl((float)std::sqrt(l2 / oldLen2));
+    return (oldLen2 == 0 || oldLen2 == l2) ? shared_from_this() : scl((float)std::sqrt(l2 / oldLen2));
 }
 
 std::shared_ptr<Vec3> Vec3::clamp(float min, float max) {
     float l2 = len2();
     if (l2 == 0.f)
-        return std::shared_ptr<Vec3>(this);
+        return shared_from_this();
     float max2 = max * max;
     if (l2 > max2)
         return scl((float)std::sqrt(max2 / l2));
     float min2 = min * min;
     if (l2 < min2)
         return scl((float)std::sqrt(min2 / l2));
-    return std::shared_ptr<Vec3>(this);
+    return shared_from_this();
 }
 
 bool Vec3::epsilonEquals(std::shared_ptr<Vec3> other, float epsilon) {
@@ -469,5 +469,5 @@ bool Vec3::epislonEquals(float x1, float y1, float z1) const {
 
 std::shared_ptr<Vec3> Vec3::setZero() {
     x = 0; y = 0; z = 0;
-    return std::shared_ptr<Vec3>(this);
+    return shared_from_this();
 }

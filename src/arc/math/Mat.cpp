@@ -68,7 +68,7 @@ std::shared_ptr<Mat> Mat::setOrtho(float x, float y, float width, float height) 
     val[M12] = ty;
     val[M22] = 1.f;
 
-    return std::shared_ptr<Mat>(this);
+    return shared_from_this();
 }
 
 std::shared_ptr<Mat> Mat::idt() {
@@ -81,7 +81,7 @@ std::shared_ptr<Mat> Mat::idt() {
     val[M02] = 0;
     val[M12] = 0;
     val[M22] = 1;
-    return std::shared_ptr<Mat>(this);
+    return shared_from_this();
 }
 
 std::shared_ptr<Mat> Mat::mul(const std::shared_ptr<Mat>& m) {
@@ -107,7 +107,7 @@ std::shared_ptr<Mat> Mat::mul(const std::shared_ptr<Mat>& m) {
     val[M12] = v12;
     val[M22] = v22;
 
-    return std::shared_ptr<Mat>(this);
+    return shared_from_this();
 }
 
 std::shared_ptr<Mat> Mat::mulLeft(const std::shared_ptr<Mat>& m) {
@@ -133,7 +133,7 @@ std::shared_ptr<Mat> Mat::mulLeft(const std::shared_ptr<Mat>& m) {
     val[M12] = v12;
     val[M22] = v22;
 
-    return std::shared_ptr<Mat>(this);
+    return shared_from_this();
 }
 
 std::shared_ptr<Mat> Mat::setToRotation(float degrees) {
@@ -156,7 +156,7 @@ std::shared_ptr<Mat> Mat::setToRotationRad(float radians) {
     val[M12] = 0;
     val[M22] = 1;
 
-    return std::shared_ptr<Mat>(this);
+    return shared_from_this();
 }
 
 std::shared_ptr<Mat> Mat::setToRotation(const std::shared_ptr<Vec3>& axis, float degrees) {
@@ -174,7 +174,7 @@ std::shared_ptr<Mat> Mat::setToRotation(const std::shared_ptr<Vec3>& axis, float
     val[M02] = oc * axis->z * axis->x - axis->y * sin;
     val[M12] = oc * axis->y * axis->z + axis->x * sin;
     val[M22] = oc * axis->z * axis->z + cos;
-    return std::shared_ptr<Mat>(this);
+    return shared_from_this();
 }
 
 std::shared_ptr<Mat> Mat::setToTranslation(float x, float y) {
@@ -190,7 +190,7 @@ std::shared_ptr<Mat> Mat::setToTranslation(float x, float y) {
     val[M12] = y;
     val[M22] = 1;
 
-    return std::shared_ptr<Mat>(this);
+    return shared_from_this();
 }
 
 std::shared_ptr<Mat> Mat::setToTranslation(const std::shared_ptr<Vec2>& translation) {
@@ -206,7 +206,7 @@ std::shared_ptr<Mat> Mat::setToTranslation(const std::shared_ptr<Vec2>& translat
     val[M12] = translation->y;
     val[M22] = 1;
 
-    return std::shared_ptr<Mat>(this);
+    return shared_from_this();
 }
 
 std::shared_ptr<Mat> Mat::setToScaling(float scaleX, float scaleY) {
@@ -220,7 +220,7 @@ std::shared_ptr<Mat> Mat::setToScaling(float scaleX, float scaleY) {
     val[M12] = 0;
     val[M22] = 1;
 
-    return std::shared_ptr<Mat>(this);
+    return shared_from_this();
 }
 
 std::shared_ptr<Mat> Mat::setToScaling(const std::shared_ptr<Vec2>& scale) {
@@ -233,7 +233,7 @@ std::shared_ptr<Mat> Mat::setToScaling(const std::shared_ptr<Vec2>& scale) {
     val[M02] = 0;
     val[M12] = 0;
     val[M22] = 1;
-    return std::shared_ptr<Mat>(this);
+    return shared_from_this();
 }
 
 std::string Mat::toString() {
@@ -275,12 +275,12 @@ std::shared_ptr<Mat> Mat::inv() {
     val[M12] = inv_det * tmp[M12];
     val[M22] = inv_det * tmp[M22];
 
-    return std::shared_ptr<Mat>(this);
+    return shared_from_this();
 }
 
 std::shared_ptr<Mat> Mat::set(const std::shared_ptr<Mat>& mat) {
     std::memcpy(val, mat->val, 9 * sizeof(float));
-    return std::shared_ptr<Mat>(this);
+    return shared_from_this();
 }
 
 std::shared_ptr<Mat> Mat::set(const std::shared_ptr<Affine2>& affine) {
@@ -294,34 +294,34 @@ std::shared_ptr<Mat> Mat::set(const std::shared_ptr<Affine2>& affine) {
     val[M12] = affine->m12;
     val[M22] = 1;
 
-    return std::shared_ptr<Mat>(this);
+    return shared_from_this();
 }
 
 std::shared_ptr<Mat> Mat::set(std::vector<float> values) {
     std::memcpy(val, values.data(), 9 * sizeof(float));
 
-    return std::shared_ptr<Mat>(this);
+    return shared_from_this();
 }
 
 std::shared_ptr<Mat> Mat::trn(const std::shared_ptr<Vec2> &vector) {
     val[M02] += vector->x;
     val[M12] += vector->y;
 
-    return std::shared_ptr<Mat>(this);
+    return shared_from_this();
 }
 
 std::shared_ptr<Mat> Mat::trn(float x, float y) {
     val[M02] += x;
     val[M12] += y;
 
-    return std::shared_ptr<Mat>(this);
+    return shared_from_this();
 }
 
 std::shared_ptr<Mat> Mat::trn(const std::shared_ptr<Vec3> &vector) {
     val[M02] += vector->x;
     val[M12] += vector->y;
 
-    return std::shared_ptr<Mat>(this);
+    return shared_from_this();
 }
 
 std::shared_ptr<Mat> Mat::translate(float x, float y) {
@@ -338,7 +338,7 @@ std::shared_ptr<Mat> Mat::translate(float x, float y) {
     tmp[M22] = 1;
     mul(val, tmp);
 
-    return std::shared_ptr<Mat>(this);
+    return shared_from_this();
 }
 
 std::shared_ptr<Mat> Mat::trnalste(const std::shared_ptr<Vec2> &translation) {
@@ -355,7 +355,7 @@ std::shared_ptr<Mat> Mat::trnalste(const std::shared_ptr<Vec2> &translation) {
     tmp[M22] = 1;
     mul(val, tmp);
 
-    return std::shared_ptr<Mat>(this);
+    return shared_from_this();
 }
 
 std::shared_ptr<Mat> Mat::rotate(float degrees) {
@@ -364,7 +364,7 @@ std::shared_ptr<Mat> Mat::rotate(float degrees) {
 
 std::shared_ptr<Mat> Mat::rotateRad(float radians) {
     if(radians == 0)
-        return std::shared_ptr<Mat>(this);
+        return shared_from_this();
     auto cos = (float)std::cos(radians);
     auto sin = (float)std::sin(radians);
 
@@ -381,7 +381,7 @@ std::shared_ptr<Mat> Mat::rotateRad(float radians) {
     tmp[M22] = 1;
     mul(val, tmp);
 
-    return std::shared_ptr<Mat>(this);
+    return shared_from_this();
 }
 
 std::shared_ptr<Mat> Mat::scale(float scaleX, float scaleY) {
@@ -396,7 +396,7 @@ std::shared_ptr<Mat> Mat::scale(float scaleX, float scaleY) {
     tmp[M22] = 1;
     mul(val, tmp);
 
-    return std::shared_ptr<Mat>(this);
+    return shared_from_this();
 }
 
 std::shared_ptr<Mat> Mat::scale(const std::shared_ptr<Vec2> &scale) {
@@ -411,7 +411,7 @@ std::shared_ptr<Mat> Mat::scale(const std::shared_ptr<Vec2> &scale) {
     tmp[M22] = 1;
     mul(val, tmp);
 
-    return std::shared_ptr<Mat>(this);
+    return shared_from_this();
 }
 
 std::vector<float> Mat::getValues() const {
@@ -444,21 +444,21 @@ std::shared_ptr<Mat> Mat::scl(float scale) {
     val[M00] *= scale;
     val[M11] *= scale;
 
-    return std::shared_ptr<Mat>(this);
+    return shared_from_this();
 }
 
 std::shared_ptr<Mat> Mat::scl(const std::shared_ptr<Vec2> &scale) {
     val[M00] *= scale->x;
     val[M11] *= scale->y;
 
-    return std::shared_ptr<Mat>(this);
+    return shared_from_this();
 }
 
 std::shared_ptr<Mat> Mat::scl(const std::shared_ptr<Vec3> &scale) {
     val[M00] *= scale->x;
     val[M11] *= scale->y;
 
-    return std::shared_ptr<Mat>(this);
+    return shared_from_this();
 }
 
 std::shared_ptr<Mat> Mat::transpose() {
@@ -475,5 +475,5 @@ std::shared_ptr<Mat> Mat::transpose() {
     val[M20] = v20;
     val[M21] = v21;
 
-    return std::shared_ptr<Mat>(this);
+    return shared_from_this();
 }
