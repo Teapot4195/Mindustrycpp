@@ -26,7 +26,7 @@ void GLTexture::uploadImageData(int target, const std::shared_ptr<TextureData>& 
         return;
 
     if (!data->isPrepared())
-        data->preapre();
+        data->prepare();
 
     if (data->isCustom()) {
         data->consumeCustomData(target);

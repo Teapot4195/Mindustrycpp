@@ -17,7 +17,7 @@ public:
     virtual ~TextureData() = default;
     virtual bool isCustom() = 0;
     virtual bool isPrepared() = 0;
-    virtual void preapre() = 0;
+    virtual void prepare() = 0;
     virtual std::shared_ptr<Pixmap> consumePixmap() = 0;
     virtual std::shared_ptr<Pixmap> getPixmap();
     virtual bool disposePixmap() = 0;

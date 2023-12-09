@@ -25,7 +25,7 @@ bool FileTextureData::isPrepared() {
     return isPrepared_;
 }
 
-void FileTextureData::preapre() {
+void FileTextureData::prepare() {
     if (isPrepared_)
         throw ArcRuntimeException("Already Prepared");
     if (pixmap) {

@@ -25,7 +25,7 @@ public:
 
     bool isPrepared() override;
 
-    void preapre() override;
+    void prepare() override;
 
     std::shared_ptr<Pixmap> consumePixmap() override;
 

@@ -18,6 +18,6 @@ std::shared_ptr<TextureData> TextureData::load(std::shared_ptr<Fi> file, bool us
 
 std::shared_ptr<Pixmap> TextureData::getPixmap() {
     if (!isPrepared())
-        preapre();
+        prepare();
     return consumePixmap();
 }
