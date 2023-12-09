@@ -50,7 +50,7 @@ public:
 
     bool contains(float x1, float y1) override;
 
-    bool contains(std::shared_ptr<Vec2> point) override;
+    bool contains(const std::shared_ptr<Vec2> &point) override;
 
     bool contains(const std::shared_ptr<Circle>& c) const;
 

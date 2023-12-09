@@ -81,7 +81,7 @@ bool Circle::contains(float x1, float y1) {
     return x1 * x1 + y1 * y1 <= radius * radius;
 }
 
-bool Circle::contains(std::shared_ptr<Vec2> point) {
+bool Circle::contains(const std::shared_ptr<Vec2> &point) {
     float dx = x - point->x;
     float dy = y - point->y;
     return dx * dx + dy * dy <= radius * radius;
