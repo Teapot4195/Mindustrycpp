@@ -7,12 +7,14 @@
 
 #include <memory>
 
+#include <arc/Utilities.h>
+
 // Forward decl to avoid circular reference
 class Pixmap;
 class Fi;
 enum class Format;
 
-class TextureData {
+class TextureData : public virtual java::NamedTree {
 public:
     virtual ~TextureData() = default;
     virtual bool isCustom() = 0;

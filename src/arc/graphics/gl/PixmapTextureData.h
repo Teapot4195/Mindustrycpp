@@ -7,9 +7,7 @@
 
 #include <arc/graphics/TextureData.h>
 
-// Forward decl to avoid circular reference
-
-class PixmapTextureData : public TextureData {
+class PixmapTextureData : public TextureData, public virtual java::NamedTree  {
 public:
     const std::shared_ptr<Pixmap> pixmap;
 

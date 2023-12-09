@@ -10,7 +10,7 @@
 #include <arc/util/Exception.h>
 
 PixmapTextureData::PixmapTextureData(std::shared_ptr<Pixmap> pixm, bool useMipMaps, bool disposePixmap)
-    : pixmap(std::move(pixm)), uMipMaps(useMipMaps), dPixmap(disposePixmap) {}
+    : pixmap(std::move(pixm)), uMipMaps(useMipMaps), dPixmap(disposePixmap), java::NamedTree("PixmapTextureData") {}
 
 bool PixmapTextureData::disposePixmap() {
     return dPixmap;

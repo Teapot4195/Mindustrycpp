@@ -11,7 +11,7 @@
 class Fi;
 class Pixmap;
 
-class FileTextureData : public TextureData {
+class FileTextureData : public TextureData, public virtual java::NamedTree {
 private:
     std::shared_ptr<Fi> file;
     int width = 0;

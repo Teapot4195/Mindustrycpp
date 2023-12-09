@@ -13,7 +13,8 @@
 FileTextureData::FileTextureData(std::shared_ptr<Fi> file, std::shared_ptr<Pixmap> preloadedPixmap, bool useMipMaps)
   : file(std::move(file)),
     pixmap(std::move(preloadedPixmap)),
-    useMipMaps_(useMipMaps)
+    useMipMaps_(useMipMaps),
+    java::NamedTree("FileTextureData")
 {
     if (!pixmap) {
         width = pixmap->width;
