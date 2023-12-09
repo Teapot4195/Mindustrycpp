@@ -29,10 +29,10 @@ public:
 
     GLTexture(int glTarget, int glHandle);
 
-    static void uploadImageData(int targt, const std::shared_ptr<TextureData>& data, int miplevel);
+    static void uploadImageData(int target, const std::shared_ptr<TextureData>& data, int miplevel);
 
 protected:
-    static void uploadImageData(int &target, const std::shared_ptr<TextureData> &data);
+    static void uploadImageData(int target, const std::shared_ptr<TextureData> &data);
 
 public:
     virtual int getDpeth() = 0;

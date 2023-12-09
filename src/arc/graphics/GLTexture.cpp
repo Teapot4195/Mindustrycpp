@@ -17,7 +17,7 @@ GLTexture::GLTexture(int glTarget) : GLTexture(glTarget, Gl::genTexture()) {}
 
 GLTexture::GLTexture(int glTarget, int glHandle) : glTarget(glTarget), glHandle(glHandle) {}
 
-void GLTexture::uploadImageData(int &target, const std::shared_ptr<TextureData> &data) {
+void GLTexture::uploadImageData(int target, const std::shared_ptr<TextureData> &data) {
     uploadImageData(target, data, 0);
 }
 
