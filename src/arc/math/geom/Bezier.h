@@ -5,10 +5,12 @@
 #ifndef MINDUSTRY_SRC_ARC_MATH_GEOM_BEZIER_H
 #define MINDUSTRY_SRC_ARC_MATH_GEOM_BEZIER_H
 
+#include <cmath>
 #include <concepts>
 #include <memory>
 
 #include <arc/struct.h>
+#include <arc/math/Mathf.h>
 #include <arc/math/geom/Path.h>
 #include <arc/math/geom/Vector.h>
 #include <arc/util/Exception.h>
@@ -16,7 +18,7 @@
 template<typename T> requires std::derived_from<T, Vector<T>>
 class Bezier : public Path<T> {
 public:
-    Seq<std::shared_ptr<T>> points = Seq<T>();
+    Seq<std::shared_ptr<T>> points = Seq<std::shared_ptr<T>>();
 
 private:
     std::shared_ptr<T> tmp, tmp2, tmp3;
@@ -56,7 +58,70 @@ public:
     std::shared_ptr<Bezier<T>> set(std::initializer_list<std::shared_ptr<T>> points);
 
     std::shared_ptr<Bezier<T>> set(std::vector<std::shared_ptr<T>> p, int offset, int length);
+
+    std::shared_ptr<T> valueAt(std::shared_ptr<T> out, float t) override;
+
+    std::shared_ptr<T> derivativeAt(std::shared_ptr<T> out, float t) override;
+
+    float approximate(std::shared_ptr<T> v) override;
+
+    float locate(std::shared_ptr<T> v) override;
+
+    float approxLength(int samples) override;
 };
+
+template<typename T>
+requires std::derived_from<T, Vector<T>>float Bezier<T>::approxLength(int samples) {
+    float tempLength = 0;
+    for (int i = 0; i < samples; ++i) {
+        tmp2->set(tmp3);
+        valueAt(tmp3, (float)(i) / ((float) samples - 1));
+        if (i > 0)
+            tempLength += tmp2->dst(tmp3);
+    }
+    return tempLength;
+}
+
+template<typename T>
+requires std::derived_from<T, Vector<T>>float Bezier<T>::locate(std::shared_ptr<T> v) {
+    return approximate(v);
+}
+
+template<typename T>
+requires std::derived_from<T, Vector<T>>float Bezier<T>::approximate(std::shared_ptr<T> v) {
+    std::shared_ptr<T> p1 = points[0];
+    std::shared_ptr<T> p2 = points[points.size() - 1];
+    float l1Sqr = p1->dst2(p2);
+    float l2Sqr = v->dst2(p2);
+    float l3Sqr = v->dst2(p1);
+    float l1 = std::sqrt(l1Sqr);
+    float s = (l2Sqr + l1Sqr - l3Sqr) / (2 * l1);
+    return Mathf::clamp((l1 - s) / l1, 0.f, 1.f);
+}
+
+template<typename T>
+requires std::derived_from<T, Vector<T>>std::shared_ptr<T> Bezier<T>::derivativeAt(std::shared_ptr<T> out, float t) {
+    int n = points.size();
+    if (n == 2)
+        linearDerivative(out, t, points[0], points[1], tmp);
+    else if (n == 3)
+        quadraticDerivative(out, t, points[0], points[1], points[2], tmp);
+    else if (n == 4)
+        cubicDerivative(out, t, points[0], points[1], points[2], points[3], tmp);
+    return out;
+}
+
+template<typename T>
+requires std::derived_from<T, Vector<T>>std::shared_ptr<T> Bezier<T>::valueAt(std::shared_ptr<T> out, float t) {
+    int n = points.size();
+    if (n == 2)
+        linear(out, t, points[0], points[1], tmp);
+    else if (n == 3)
+        quadratic(out, t, points[0], points[1], points[2], tmp);
+    else if (n == 4)
+        cubic(out, t, points[0], points[1], points[2], points[3], tmp);
+    return out;
+}
 
 template<typename T>
 requires std::derived_from<T, Vector<T>>std::shared_ptr<Bezier<T>>
