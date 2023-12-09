@@ -559,7 +559,7 @@ public:
 
     static void texParameterfv(int &target, int &pname, std::vector<float> &params);
 
-    static void texParameteri(int &target, int &pname, int &param);
+    static void texParameteri(cosnt &target, const int &pname, const int &param);
 
     static void texParameteriv(int &target, int &pname, std::vector<int> &params);
 

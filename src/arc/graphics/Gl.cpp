@@ -511,7 +511,7 @@ void Gl::texParameterfv(int &target, int &pname, std::vector<float> &params) {
     Core::gl.value()->glTexParameterfv(target, pname, params);
 }
 
-void Gl::texParameteri(int &target, int &pname, int &param) {
+void Gl::texParameteri(cosnt &target, const int &pname, const int &param) {
     Core::gl.value()->glTexParameteri(target, pname, param);
 }
 
