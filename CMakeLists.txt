@@ -58,7 +58,6 @@ add_subdirectory(libs/reproc)
 ###################################################
 
 add_library(Arc OBJECT
-        src/arc/files/Fi.cpp
         src/arc/Utilities.h
         src/arc/Utilities.h
         src/arc/util/Exception.h
