@@ -10,7 +10,7 @@ pipeline {
 
                     steps {
                         // Get the Repo
-                        checkout scmGit(branches: [[name: '**']], extensions: [submodule(recursiveSubmodules: true, reference: '')], userRemoteConfigs: [[credentialsId: 'git-ssh', url: 'git@github.com:Teapot4195/Mindustrycpp.git']])
+                        checkout scmGit(branches: [[name: '**']], extensions: [submodule(parentCredentials: true, recursiveSubmodules: true, reference: '')], userRemoteConfigs: [[credentialsId: 'git-ssh', url: 'git@github.com:Teapot4195/Mindustrycpp.git']])
 
                         // Make build directories
                         sh "mkdir -p build-release build-debug build-relwithdeb"
