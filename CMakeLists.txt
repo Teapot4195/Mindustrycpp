@@ -138,6 +138,8 @@ add_library(Arc OBJECT
         src/arc/math/geom/Shape2D.h
         src/arc/math/geom/Circle.cpp
         src/arc/math/geom/Circle.h
+        src/arc/math/geom/Point2.cpp
+        src/arc/math/geom/Point2.h
 )
 
 set_target_properties(Arc PROPERTIES LINKER_LANGUAGE CXX)
