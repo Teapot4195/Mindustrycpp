@@ -36,7 +36,6 @@ pipeline {
                             sh '''#!/bin/bash
                             cmake -DCMAKE_BUILD_TYPE=Release ..
                             make -j $(nproc)
-                            cp -r html ../build-archive-rel
                             Files=(
                                 Mindustry
                             )
@@ -56,11 +55,10 @@ pipeline {
                         }
 
                         // Build relwithdeb version
-                        dir ("build-debug") {
+                        dir ("build-relwithdeb") {
                             sh '''#!/bin/bash
                             cmake -DCMAKE_BUILD_TYPE=RelWithDebInfo ..
                             make -j $(nproc)
-                            cp -r html ../build-archive-relwithdeb
                             Files=(
                                 Mindustry
                             )
