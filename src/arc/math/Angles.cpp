@@ -10,7 +10,7 @@
 
 Rand Angles::rand {};
 
-//std::shard_ptr<Vec2> Angles::rv = std::make_shared<Vec2>();
+std::shared_ptr<Vec2> Angles::rv = std::make_shared<Vec2>();
 
 float Angles::forwardDistance(float angle1, float angle2) {
     return std::abs(angle1 - angle2);
@@ -25,8 +25,8 @@ bool Angles::within(float a, float b, float margin) {
 }
 
 float Angles::angleDist(float a, float b) {
-    a = Mathf::mod(a, 360);
-    b = Mathf::mod(b, 360);
+    a = Mathf::mod(a, 360.f);
+    b = Mathf::mod(b, 360.f);
     return std::min((a - b) < 0 ? a - b + 360 : a - b, (b - a) < 0 ? b - a + 360 : b - a);
 }
 
@@ -77,11 +77,11 @@ float Angles::trnsy(float angle, float len) {
 }
 
 float Angles::trnsx(float angle, float x, float y) {
-    return rv->set(x, y).rotate(angle).x;
+    return rv->set(x, y)->rotate(angle)->x;
 }
 
 float Angles::trnsy(float angle, float x, float y) {
-    return rv->set(x, y).rotate(angle).y;
+    return rv->set(x, y)->rotate(angle)->y;
 }
 
 float Angles::mouseAngle(float cx, float cy) {
@@ -91,14 +91,14 @@ float Angles::mouseAngle(float cx, float cy) {
 
 void Angles::circleVectors(std::uint32_t points, float length, const Floatc2& pos) {
     for (int i = 0; i < points; i++) {
-        float f = (float)i * 360 / points;
+        float f = (float)i * 360 / (float)points;
         pos(trnsx(f, length), trnsy(f, length));
     }
 }
 
 void Angles::circleVectors(std::uint32_t points, float length, float offset, const Floatc2 &pos) {
     for (int i = 0; i < points; i++) {
-        float f = (float)i * 360 / points + offset;
+        float f = (float)i * 360 / (float)points + offset;
         pos(trnsx(f, length), trnsy(f, length));
     }
 }
@@ -107,7 +107,7 @@ void Angles::randVectors(std::uint64_t seed, std::uint32_t amount, float length,
     rand.setSeed(seed);
     for (int i = 0; i < amount; i++) {
         rv->trns(rand.random(360.f), length);
-        cons(rv.x, rv.y);
+        cons(rv->x, rv->y);
     }
 }
 
