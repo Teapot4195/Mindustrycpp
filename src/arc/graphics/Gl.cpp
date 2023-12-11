@@ -406,7 +406,7 @@ void Gl::getRenderbufferParameteriv(int &target, int &pname, std::vector<int> &p
     Core::gl.value()->glGetRenderbufferParameteriv(target, pname, params);
 }
 
-void Gl::getShaderiv(int &shader, int &pname, std::vector<int> &params) {
+void Gl::getShaderiv(int &shader, int pname, std::vector<int> &params) {
     Core::gl.value()->glGetShaderiv(shader, pname, params);
 }
 

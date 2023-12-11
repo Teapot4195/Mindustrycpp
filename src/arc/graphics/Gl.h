@@ -507,7 +507,7 @@ public:
 
     static void getRenderbufferParameteriv(int &target, int &pname, std::vector<int> &params);
 
-    static void getShaderiv(int &shader, int &pname, std::vector<int> &params);
+    static void getShaderiv(int &shader, int pname, std::vector<int> &params);
 
     static std::string getShaderInfoLog(int &shader);
 
