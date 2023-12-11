@@ -140,6 +140,8 @@ add_library(Arc OBJECT
         src/arc/math/geom/Point2.cpp
         src/arc/math/geom/Point2.h
         src/arc/scene/Drawable.h
+        src/arc/graphics/VertexAttribute.cpp
+        src/arc/graphics/VertexAttribute.h
         src/arc/graphics/gl/Shader.cpp
         src/arc/graphics/gl/Shader.h
 )
