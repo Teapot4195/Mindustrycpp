@@ -567,7 +567,7 @@ public:
 
     static void uniform1fv(int &location, int &count, std::vector<float> &v);
 
-    static void uniform1fv(int &location, int &count, std::vector<float> &v, int &offset);
+    static void uniform1fv(int &location, int count, std::vector<float> &v, int offset);
 
     static void uniform1i(int &location, int &x);
 
@@ -579,7 +579,7 @@ public:
 
     static void uniform2fv(int &location, int &count, std::vector<float> &v);
 
-    static void uniform2fv(int &location, int &count, std::vector<float> &v, int &offset);
+    static void uniform2fv(int &location, int count, std::vector<float> &v, int offset);
 
     static void uniform2i(int &location, int &x, int &y);
 
@@ -591,7 +591,7 @@ public:
 
     static void uniform3fv(int &location, int &count, std::vector<float> &v);
 
-    static void uniform3fv(int &location, int &count, std::vector<float> &v, int &offset);
+    static void uniform3fv(int &location, int count, std::vector<float> &v, int offset);
 
     static void uniform3i(int &location, int &x, int &y, int &z);
 
@@ -603,7 +603,7 @@ public:
 
     static void uniform4fv(int &location, int &count, std::vector<float> &v);
 
-    static void uniform4fv(int &location, int &count, std::vector<float> &v, int &offset);
+    static void uniform4fv(int &location, int count, std::vector<float> &v, int offset);
 
     static void uniform4i(int &location, int &x, int &y, int &z, int &w);
 
@@ -619,9 +619,9 @@ public:
 
     static void glUniformMatrix2fv(int &location, int &count, bool& transpose, std::vector<float> &value, int &offset);
 
-    static void glUniformMatrix3fv(int &location, int &count, bool& transpose, std::vector<float> &value);
+    static void glUniformMatrix3fv(int &location, int count, bool& transpose, std::vector<float> value);
 
-    static void glUniformMatrix3fv(int &location, int &count, bool& transpose, std::vector<float> &value, int &offset);
+    static void glUniformMatrix3fv(int &location, int count, bool& transpose, std::vector<float> value, int offset);
 
     static void glUniformMatrix4fv(int &location, int &count, bool& transpose, std::vector<float> &value);
 

@@ -527,7 +527,7 @@ void Gl::uniform1fv(int &location, int &count, std::vector<float> &v) {
     Core::gl.value()->glUniform1fv(location, count, v);
 }
 
-void Gl::uniform1fv(int &location, int &count, std::vector<float> &v, int &offset) {
+void Gl::uniform1fv(int &location, int count, std::vector<float> &v, int offset) {
     Core::gl.value()->glUniform1fv(location, count, v, offset);
 }
 
@@ -551,7 +551,7 @@ void Gl::uniform2fv(int &location, int &count, std::vector<float> &v) {
     Core::gl.value()->glUniform2fv(location, count, v);
 }
 
-void Gl::uniform2fv(int &location, int &count, std::vector<float> &v, int &offset) {
+void Gl::uniform2fv(int &location, int count, std::vector<float> &v, int offset) {
     Core::gl.value()->glUniform2fv(location, count, v, offset);
 }
 
@@ -575,7 +575,7 @@ void Gl::uniform3fv(int &location, int &count, std::vector<float> &v) {
     Core::gl.value()->glUniform3fv(location, count, v);
 }
 
-void Gl::uniform3fv(int &location, int &count, std::vector<float> &v, int &offset) {
+void Gl::uniform3fv(int &location, int count, std::vector<float> &v, int offset) {
     Core::gl.value()->glUniform3fv(location, count, v, offset);
 }
 
@@ -599,7 +599,7 @@ void Gl::uniform4fv(int &location, int &count, std::vector<float> &v) {
     Core::gl.value()->glUniform4fv(location, count, v);
 }
 
-void Gl::uniform4fv(int &location, int &count, std::vector<float> &v, int &offset) {
+void Gl::uniform4fv(int &location, int count, std::vector<float> &v, int offset) {
     Core::gl.value()->glUniform4fv(location, count, v, offset);
 }
 
@@ -631,11 +631,11 @@ void Gl::glUniformMatrix2fv(int &location, int &count, bool &transpose, std::vec
     Core::gl.value()->glUniformMatrix2fv(location, count, transpose, value, offset);
 }
 
-void Gl::glUniformMatrix3fv(int &location, int &count, bool &transpose, std::vector<float> &value) {
+void Gl::glUniformMatrix3fv(int &location, int count, bool &transpose, std::vector<float> value) {
     Core::gl.value()->glUniformMatrix3fv(location, count, transpose, value);
 }
 
-void Gl::glUniformMatrix3fv(int &location, int &count, bool &transpose, std::vector<float> &value, int &offset) {
+void Gl::glUniformMatrix3fv(int &location, int count, bool &transpose, std::vector<float> value, int offset) {
     Core::gl.value()->glUniformMatrix3fv(location, count, transpose, value, offset);
 }
 
