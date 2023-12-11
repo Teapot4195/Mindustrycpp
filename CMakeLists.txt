@@ -144,6 +144,8 @@ add_library(Arc OBJECT
         src/arc/graphics/VertexAttribute.h
         src/arc/graphics/gl/Shader.cpp
         src/arc/graphics/gl/Shader.h
+        src/arc/graphics/gl/VertexData.cpp
+        src/arc/graphics/gl/VertexData.h
         src/arc/graphics/gl/IndexData.h
 )
 
