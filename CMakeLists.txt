@@ -144,6 +144,7 @@ add_library(Arc OBJECT
         src/arc/graphics/VertexAttribute.h
         src/arc/graphics/gl/Shader.cpp
         src/arc/graphics/gl/Shader.h
+        src/arc/graphics/gl/IndexData.h
 )
 
 set_target_properties(Arc PROPERTIES LINKER_LANGUAGE CXX)
