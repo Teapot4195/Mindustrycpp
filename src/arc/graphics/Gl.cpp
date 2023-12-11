@@ -511,7 +511,7 @@ void Gl::texParameterfv(int &target, int &pname, std::vector<float> &params) {
     Core::gl.value()->glTexParameterfv(target, pname, params);
 }
 
-void Gl::texParameteri(cosnt &target, const int &pname, const int &param) {
+void Gl::texParameteri(int &target, int &pname, int &param) {
     Core::gl.value()->glTexParameteri(target, pname, param);
 }
 
@@ -623,27 +623,19 @@ void Gl::uniformMatrix2fv(int &location, int &count, bool &transpose, std::vecto
     Core::gl.value()->glUniformMatrix2fv(location, count, transpose, value, offset);
 }
 
-void Gl::glUniformMatrix2fv(int &location, int &count, bool &transpose, std::vector<float> &value) {
-    Core::gl.value()->glUniformMatrix2fv(location, count, transpose, value);
-}
-
-void Gl::glUniformMatrix2fv(int &location, int &count, bool &transpose, std::vector<float> &value, int &offset) {
-    Core::gl.value()->glUniformMatrix2fv(location, count, transpose, value, offset);
-}
-
-void Gl::glUniformMatrix3fv(int &location, int count, bool &transpose, std::vector<float> value) {
+void Gl::uniformMatrix3fv(int &location, int count, bool &transpose, std::vector<float> value) {
     Core::gl.value()->glUniformMatrix3fv(location, count, transpose, value);
 }
 
-void Gl::glUniformMatrix3fv(int &location, int count, bool &transpose, std::vector<float> value, int offset) {
+void Gl::uniformMatrix3fv(int &location, int count, bool &transpose, std::vector<float> value, int offset) {
     Core::gl.value()->glUniformMatrix3fv(location, count, transpose, value, offset);
 }
 
-void Gl::glUniformMatrix4fv(int &location, int &count, bool &transpose, std::vector<float> &value) {
+void Gl::uniformMatrix4fv(int location, int count, bool transpose, std::vector<float> &value) {
     Core::gl.value()->glUniformMatrix4fv(location, count, transpose, value);
 }
 
-void Gl::glUniformMatrix4fv(int &location, int &count, bool &transpose, std::vector<float> &value, int &offset) {
+void Gl::uniformMatrix4fv(int location, int count, bool transpose, std::vector<float> &value, int offset) {
     Core::gl.value()->glUniformMatrix4fv(location, count, transpose, value, offset);
 }
 

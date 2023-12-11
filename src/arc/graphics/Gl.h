@@ -559,7 +559,7 @@ public:
 
     static void texParameterfv(int &target, int &pname, std::vector<float> &params);
 
-    static void texParameteri(cosnt &target, const int &pname, const int &param);
+    static void texParameteri(int &target, int &pname, int &param);
 
     static void texParameteriv(int &target, int &pname, std::vector<int> &params);
 
@@ -615,17 +615,13 @@ public:
 
     static void uniformMatrix2fv(int &location, int &count, bool &transpose, std::vector<float> &value, int &offset);
 
-    static void glUniformMatrix2fv(int &location, int &count, bool& transpose, std::vector<float> &value);
+    static void uniformMatrix3fv(int &location, int count, bool& transpose, std::vector<float> value);
 
-    static void glUniformMatrix2fv(int &location, int &count, bool& transpose, std::vector<float> &value, int &offset);
+    static void uniformMatrix3fv(int &location, int count, bool& transpose, std::vector<float> value, int offset);
 
-    static void glUniformMatrix3fv(int &location, int count, bool& transpose, std::vector<float> value);
+    static void uniformMatrix4fv(int location, int count, bool transpose, std::vector<float> &value);
 
-    static void glUniformMatrix3fv(int &location, int count, bool& transpose, std::vector<float> value, int offset);
-
-    static void glUniformMatrix4fv(int &location, int &count, bool& transpose, std::vector<float> &value);
-
-    static void glUniformMatrix4fv(int &location, int &count, bool& transpose, std::vector<float> &value, int &offset);
+    static void uniformMatrix4fv(int location, int count, bool transpose, std::vector<float> &value, int offset);
 
     static void useProgram(int &program);
 
