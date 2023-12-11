@@ -631,15 +631,15 @@ void Gl::uniformMatrix3fv(int &location, int count, bool &transpose, std::vector
     Core::gl.value()->glUniformMatrix3fv(location, count, transpose, value, offset);
 }
 
-void Gl::uniformMatrix4fv(int location, int count, bool transpose, std::vector<float> &value) {
+void Gl::uniformMatrix4fv(int location, int count, bool transpose, std::vector<float> value) {
     Core::gl.value()->glUniformMatrix4fv(location, count, transpose, value);
 }
 
-void Gl::uniformMatrix4fv(int location, int count, bool transpose, std::vector<float> &value, int offset) {
+void Gl::uniformMatrix4fv(int location, int count, bool transpose, std::vector<float> value, int offset) {
     Core::gl.value()->glUniformMatrix4fv(location, count, transpose, value, offset);
 }
 
-void Gl::useProgram(int &program) {
+void Gl::useProgram(int program) {
     if (optimize && lastUsedProgram == program)
         return;
 

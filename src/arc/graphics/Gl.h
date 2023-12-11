@@ -619,11 +619,11 @@ public:
 
     static void uniformMatrix3fv(int &location, int count, bool& transpose, std::vector<float> value, int offset);
 
-    static void uniformMatrix4fv(int location, int count, bool transpose, std::vector<float> &value);
+    static void uniformMatrix4fv(int location, int count, bool transpose, std::vector<float> value);
 
-    static void uniformMatrix4fv(int location, int count, bool transpose, std::vector<float> &value, int offset);
+    static void uniformMatrix4fv(int location, int count, bool transpose, std::vector<float> value, int offset);
 
-    static void useProgram(int &program);
+    static void useProgram(int program);
 
     static void validateProgram(int &program);
 
