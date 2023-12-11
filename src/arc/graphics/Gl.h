@@ -381,7 +381,7 @@ public:
 
     static void drawArrays(int &mode, int &first, int &count);
 
-    static void drawElements(int &mode, int &count, int &type, Buf &indices);
+    static void drawElements(int &mode, int &count, int type, Buf &indices);
 
     static void enable(int &cap);
 
@@ -471,7 +471,7 @@ public:
 
     static void disableVertexAttribArray(int &index);
 
-    static void drawElements(int &mode, int &count, int &type, int &indices);
+    static void drawElements(int mode, int count, int type, int indices);
 
     static void enableVertexAttribArray(int &index);
 

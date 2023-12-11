@@ -145,7 +145,7 @@ void Gl::drawArrays(int &mode, int &first, int &count) {
     Core::gl.value()->glDrawArrays(mode, first, count);
 }
 
-void Gl::drawElements(int &mode, int &count, int &type, Gl::Buf &indices) {
+void Gl::drawElements(int &mode, int &count, int type, Buf &indices) {
     Core::gl.value()->glDrawElements(mode, count, type, indices);
 }
 
@@ -334,7 +334,7 @@ void Gl::disableVertexAttribArray(int &index) {
     Core::gl.value()->glDisableVertexAttribArray(index);
 }
 
-void Gl::drawElements(int &mode, int &count, int &type, int &indices) {
+void Gl::drawElements(int mode, int count, int type, int indices) {
     Core::gl.value()->glDrawElements(mode, count, type, indices);
 }
 
