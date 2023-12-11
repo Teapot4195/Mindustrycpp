@@ -501,7 +501,7 @@ public:
 
     static void getFramebufferAttachmentParameteriv(int &target, int &attachment, int &pname, std::vector<int> &params);
 
-    static void getProgramiv(int &program, int &pname, std::vector<int> &params);
+    static void getProgramiv(int &program, int pname, std::vector<int> &params);
 
     static std::string getProgramInfoLog(int &program);
 

@@ -394,7 +394,7 @@ void Gl::getFramebufferAttachmentParameteriv(int &target, int &attachment, int &
     Core::gl.value()->glGetFramebufferAttachmentparameteriv(target, attachment, pname, params);
 }
 
-void Gl::getProgramiv(int &program, int &pname, std::vector<int> &params) {
+void Gl::getProgramiv(int &program, int pname, std::vector<int> &params) {
     Core::gl.value()->glGetProgramiv(program, pname, params);
 }
 
