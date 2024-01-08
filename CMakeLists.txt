@@ -53,100 +53,13 @@ add_subdirectory(libs/infoware)
 set(REPROC++ ON)
 add_subdirectory(libs/reproc)
 
+add_subdirectory(tests)
+
 ###################################################
 # Main
 ###################################################
 
 add_library(Arc OBJECT
-        src/arc/Utilities.h
-        src/arc/Utilities.h
-        src/arc/util/Exception.h
-        src/arc/util/io/Writes.cpp
-        src/arc/util/io/Writes.h
-        src/arc/util/io/Reads.cpp
-        src/arc/util/io/Reads.h
-        src/arc/util/Disposable.h
-        src/arc/func.h
-        src/arc/graphics/Color.cpp
-        src/arc/graphics/Color.h
-        src/arc/math/Mathf.cpp
-        src/arc/math/Mathf.h
-        src/arc/math/Rand.cpp
-        src/arc/math/Rand.h
-        src/arc/math/geom/Vector.h
-        src/arc/math/Interp.h
-        src/arc/math/geom/Position.h
-        src/arc/math/Angles.cpp
-        src/arc/math/Angles.h
-        src/arc/math/geom/Position.cpp
-        src/arc/math/geom/Vec2.cpp
-        src/arc/math/geom/Vec2.h
-        src/arc/math/geom/Vec3.cpp
-        src/arc/math/geom/Vec3.h
-        src/arc/math/Mat.cpp
-        src/arc/math/Mat.h
-        src/arc/math/Affine2.cpp
-        src/arc/math/Affine2.h
-        src/arc/util/Time.cpp
-        src/arc/util/Time.h
-        src/arc/struct.h
-        src/arc/util/pooling/Pool.h
-        src/arc/util/pooling/Pools.h
-        src/arc/util/Timer.cpp
-        src/arc/util/Timer.h
-        src/arc/ApplicationListener.h
-        src/arc/Application.h
-        src/arc/Application.cpp
-        src/arc/graphics/GLTexture.cpp
-        src/arc/graphics/GLTexture.h
-        src/arc/graphics/Gl.cpp
-        src/arc/graphics/Gl.h
-        src/arc/graphics/GL20.h
-        src/arc/Utils.h
-        src/arc/graphics/TextureData.h
-        src/arc/graphics/gl/FileTextureData.cpp
-        src/arc/graphics/gl/FileTextureData.h
-        src/arc/graphics/TextureData.cpp
-        src/arc/graphics/PixmapIO.cpp
-        src/arc/graphics/PixmapIO.h
-        src/arc/util/io/WritesDeflate.cpp
-        src/arc/util/io/WritesDeflate.h
-        src/arc/util/io/ReadsDeflate.cpp
-        src/arc/util/io/ReadsDeflate.h
-        src/arc/util/Pack.h
-        src/arc/graphics/gl/MipMapGenerator.cpp
-        src/arc/graphics/gl/MipMapGenerator.h
-        src/arc/Graphics.cpp
-        src/arc/Graphics.h
-        src/arc/graphics/gl/GLVersion.cpp
-        src/arc/graphics/gl/GLVersion.h
-        src/arc/util/Log.cpp
-        src/arc/util/Log.h
-        src/arc/util/ColorCodes.cpp
-        src/arc/util/ColorCodes.h
-        src/arc/util/OS.cpp
-        src/arc/util/OS.h
-        src/arc/graphics/Texture.cpp
-        src/arc/graphics/Texture.h
-        src/arc/graphics/gl/PixmapTextureData.cpp
-        src/arc/graphics/gl/PixmapTextureData.h
-        src/arc/math/geom/Path.h
-        src/arc/math/geom/Bezier.h
-        src/arc/math/geom/Rect.cpp
-        src/arc/math/geom/Rect.h
-        src/arc/math/geom/Shape2D.h
-        src/arc/math/geom/Circle.cpp
-        src/arc/math/geom/Circle.h
-        src/arc/math/geom/Point2.cpp
-        src/arc/math/geom/Point2.h
-        src/arc/scene/Drawable.h
-        src/arc/graphics/VertexAttribute.cpp
-        src/arc/graphics/VertexAttribute.h
-        src/arc/graphics/gl/Shader.cpp
-        src/arc/graphics/gl/Shader.h
-        src/arc/graphics/gl/VertexData.cpp
-        src/arc/graphics/gl/VertexData.h
-        src/arc/graphics/gl/IndexData.h
 )
 
 set_target_properties(Arc PROPERTIES LINKER_LANGUAGE CXX)
