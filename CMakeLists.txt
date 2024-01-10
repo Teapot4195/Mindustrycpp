@@ -60,6 +60,8 @@ add_subdirectory(tests)
 ###################################################
 
 add_library(Arc OBJECT
+        src/arc/io/anuke/arc/collection/Structs.cpp
+        src/arc/io/anuke/arc/collection/Structs.h
 )
 
 set_target_properties(Arc PROPERTIES LINKER_LANGUAGE CXX)
